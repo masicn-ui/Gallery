@@ -1,0 +1,15 @@
+{
+  "$schema": "https://masicn-ui.github.io/registry/schema/masicn.json",
+  "version": "1",
+  "registry": "https://masicn-ui.github.io/registry/registry.json",
+  "outputDir": "src/shared/components",
+  "importAlias": "./src/shared/components",
+  "blocksDir": "src/shared/blocks",
+  "blocksAlias": "./src/shared/blocks",
+  "masicnAlias": "./src/masicn",
+  "installedComponents": {},
+  "localDesignSystem": true,
+  "designSystemDir": "src/masicn",
+  "palette": "masi",
+  "fontSetup": "masicn"
+}

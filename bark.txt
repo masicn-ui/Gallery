@@ -14,6 +14,23 @@
 │   │   └── src/
 │   │       └── main/
 │   │           ├── AndroidManifest.xml
+│   │           ├── assets/
+│   │           │   └── fonts/
+│   │           │       ├── DMSans-Bold.ttf
+│   │           │       ├── DMSans-Medium.ttf
+│   │           │       ├── DMSans-Regular.ttf
+│   │           │       ├── Inter-Bold.ttf
+│   │           │       ├── Inter-Medium.ttf
+│   │           │       ├── Inter-Regular.ttf
+│   │           │       ├── Manrope-Bold.ttf
+│   │           │       ├── Manrope-Medium.ttf
+│   │           │       ├── Manrope-Regular.ttf
+│   │           │       ├── Outfit-Bold.ttf
+│   │           │       ├── Outfit-Medium.ttf
+│   │           │       ├── Outfit-Regular.ttf
+│   │           │       ├── Poppins-Bold.ttf
+│   │           │       ├── Poppins-Medium.ttf
+│   │           │       └── Poppins-Regular.ttf
 │   │           ├── java/
 │   │           │   └── com/
 │   │           │       └── masicn/
@@ -49,8 +66,26 @@
 │   ├── gradle.properties
 │   ├── gradlew
 │   ├── gradlew.bat
+│   ├── link-assets-manifest.json
 │   └── settings.gradle
 ├── app.json
+├── assets/
+│   └── fonts/
+│       ├── DMSans-Bold.ttf
+│       ├── DMSans-Medium.ttf
+│       ├── DMSans-Regular.ttf
+│       ├── Inter-Bold.ttf
+│       ├── Inter-Medium.ttf
+│       ├── Inter-Regular.ttf
+│       ├── Manrope-Bold.ttf
+│       ├── Manrope-Medium.ttf
+│       ├── Manrope-Regular.ttf
+│       ├── Outfit-Bold.ttf
+│       ├── Outfit-Medium.ttf
+│       ├── Outfit-Regular.ttf
+│       ├── Poppins-Bold.ttf
+│       ├── Poppins-Medium.ttf
+│       └── Poppins-Regular.ttf
 ├── babel.config.js
 ├── index.js
 ├── ios/
@@ -65,17 +100,112 @@
 │   │   └── PrivacyInfo.xcprivacy
 │   ├── Gallery.xcodeproj/
 │   │   ├── project.pbxproj
+│   │   ├── project.xcworkspace/
+│   │   │   └── xcshareddata/
+│   │   │       └── swiftpm/
+│   │   │           └── configuration/
 │   │   └── xcshareddata/
 │   │       └── xcschemes/
 │   │           └── Gallery.xcscheme
 │   ├── Gallery.xcworkspace/
-│   │   └── contents.xcworkspacedata
+│   │   ├── contents.xcworkspacedata
+│   │   └── xcshareddata/
+│   │       └── swiftpm/
+│   │           └── configuration/
 │   ├── Podfile
-│   └── Podfile.lock
+│   ├── Podfile.lock
+│   └── link-assets-manifest.json
 ├── jest.config.js
+├── masicn.json
 ├── metro.config.js
 ├── package-lock.json
 ├── package.json
+├── react-native.config.js
+├── src/
+│   └── masicn/
+│       ├── WelcomeScreen.tsx
+│       ├── hooks/
+│       │   ├── index.ts
+│       │   ├── useAccessibilityProps.ts
+│       │   ├── useFocusTrap.ts
+│       │   ├── useGradients.ts
+│       │   ├── useReducedMotion.ts
+│       │   └── useResponsive.ts
+│       ├── icons/
+│       │   ├── ArrowLeftIcon.tsx
+│       │   ├── CheckIcon.tsx
+│       │   ├── ChevronDownIcon.tsx
+│       │   ├── ChevronRightIcon.tsx
+│       │   ├── ChevronUpIcon.tsx
+│       │   ├── EyeIcon.tsx
+│       │   ├── EyeOffIcon.tsx
+│       │   ├── InboxIcon.tsx
+│       │   ├── InfoIcon.tsx
+│       │   ├── MinusIcon.tsx
+│       │   ├── MoonIcon.tsx
+│       │   ├── PaintBoardIcon.tsx
+│       │   ├── PaletteIcon.tsx
+│       │   ├── PlusIcon.tsx
+│       │   ├── SearchIcon.tsx
+│       │   ├── SettingsIcon.tsx
+│       │   ├── StarIcon.tsx
+│       │   ├── SunIcon.tsx
+│       │   ├── WarningIcon.tsx
+│       │   ├── XIcon.tsx
+│       │   └── index.ts
+│       ├── index.ts
+│       ├── primitives/
+│       │   ├── AspectRatio.tsx
+│       │   ├── Box.tsx
+│       │   ├── Center.tsx
+│       │   ├── Circle.tsx
+│       │   ├── Divider.tsx
+│       │   ├── Icon.tsx
+│       │   ├── Pressable.tsx
+│       │   ├── Row.tsx
+│       │   ├── SafeAreaScreen.tsx
+│       │   ├── Screen.tsx
+│       │   ├── Spacer.tsx
+│       │   ├── Square.tsx
+│       │   ├── Stack.tsx
+│       │   ├── Surface.tsx
+│       │   ├── Text.tsx
+│       │   ├── Wrap.tsx
+│       │   └── index.ts
+│       ├── system/
+│       │   ├── Masicn.tsx
+│       │   ├── MasicnProvider.tsx
+│       │   ├── PortalHost.tsx
+│       │   ├── ThemeToggle.tsx
+│       │   └── index.ts
+│       ├── theme/
+│       │   ├── ThemeContext.tsx
+│       │   ├── ThemeProvider.tsx
+│       │   ├── colors.ts
+│       │   ├── createTheme.ts
+│       │   ├── dark.ts
+│       │   ├── index.ts
+│       │   ├── light.ts
+│       │   ├── theme.ts
+│       │   └── version.ts
+│       ├── tokens/
+│       │   ├── borders.ts
+│       │   ├── elevation.ts
+│       │   ├── gradients.ts
+│       │   ├── iconSizes.ts
+│       │   ├── index.ts
+│       │   ├── layout.ts
+│       │   ├── lineHeight.ts
+│       │   ├── motion.ts
+│       │   ├── motionEasing.ts
+│       │   ├── opacity.ts
+│       │   ├── radius.ts
+│       │   ├── sizes.ts
+│       │   ├── spacing.ts
+│       │   └── typography.ts
+│       └── utils/
+│           ├── color.ts
+│           └── index.ts
 └── tsconfig.json
 
-27 directories, 51 files
+47 directories, 161 files
