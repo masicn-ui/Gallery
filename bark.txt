@@ -1,0 +1,81 @@
+.
+├── App.tsx
+├── CLAUDE.md
+├── Gemfile
+├── Gemfile.lock
+├── README.md
+├── __tests__/
+│   └── App.test.tsx
+├── android/
+│   ├── app/
+│   │   ├── build.gradle
+│   │   ├── debug.keystore
+│   │   ├── proguard-rules.pro
+│   │   └── src/
+│   │       └── main/
+│   │           ├── AndroidManifest.xml
+│   │           ├── java/
+│   │           │   └── com/
+│   │           │       └── masicn/
+│   │           │           └── gallery/
+│   │           │               ├── MainActivity.kt
+│   │           │               └── MainApplication.kt
+│   │           └── res/
+│   │               ├── drawable/
+│   │               │   └── rn_edit_text_material.xml
+│   │               ├── mipmap-hdpi/
+│   │               │   ├── ic_launcher.png
+│   │               │   └── ic_launcher_round.png
+│   │               ├── mipmap-mdpi/
+│   │               │   ├── ic_launcher.png
+│   │               │   └── ic_launcher_round.png
+│   │               ├── mipmap-xhdpi/
+│   │               │   ├── ic_launcher.png
+│   │               │   └── ic_launcher_round.png
+│   │               ├── mipmap-xxhdpi/
+│   │               │   ├── ic_launcher.png
+│   │               │   └── ic_launcher_round.png
+│   │               ├── mipmap-xxxhdpi/
+│   │               │   ├── ic_launcher.png
+│   │               │   └── ic_launcher_round.png
+│   │               └── values/
+│   │                   ├── strings.xml
+│   │                   └── styles.xml
+│   ├── build.gradle
+│   ├── gradle/
+│   │   └── wrapper/
+│   │       ├── gradle-wrapper.jar
+│   │       └── gradle-wrapper.properties
+│   ├── gradle.properties
+│   ├── gradlew
+│   ├── gradlew.bat
+│   └── settings.gradle
+├── app.json
+├── babel.config.js
+├── index.js
+├── ios/
+│   ├── Gallery/
+│   │   ├── AppDelegate.swift
+│   │   ├── Images.xcassets/
+│   │   │   ├── AppIcon.appiconset/
+│   │   │   │   └── Contents.json
+│   │   │   └── Contents.json
+│   │   ├── Info.plist
+│   │   ├── LaunchScreen.storyboard
+│   │   └── PrivacyInfo.xcprivacy
+│   ├── Gallery.xcodeproj/
+│   │   ├── project.pbxproj
+│   │   └── xcshareddata/
+│   │       └── xcschemes/
+│   │           └── Gallery.xcscheme
+│   ├── Gallery.xcworkspace/
+│   │   └── contents.xcworkspacedata
+│   ├── Podfile
+│   └── Podfile.lock
+├── jest.config.js
+├── metro.config.js
+├── package-lock.json
+├── package.json
+└── tsconfig.json
+
+27 directories, 51 files
