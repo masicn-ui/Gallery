@@ -23,7 +23,12 @@ interface DividerProps extends ViewProps {
   vertical?: boolean;
 }
 
-export function Divider({ inset = false, vertical = false, style, ...rest }: DividerProps) {
+export function Divider({
+  inset = false,
+  vertical = false,
+  style,
+  ...rest
+}: DividerProps) {
   const { theme } = useTheme();
 
   return (

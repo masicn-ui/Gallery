@@ -2,10 +2,7 @@ import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 import type { IconProps } from '../primitives';
 
-export function XIcon({
-  size = 24,
-  color = 'currentColor',
-}: IconProps) {
+export function XIcon({ size = 24, color = 'currentColor' }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <Path

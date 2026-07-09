@@ -12,7 +12,8 @@ import Animated, {
 import { opacity as opacityTokens, motion } from '../tokens';
 import { useReducedMotion } from '../hooks';
 
-export interface PressableProps extends Omit<RNPressableProps, 'style' | 'children'> {
+export interface PressableProps
+  extends Omit<RNPressableProps, 'style' | 'children'> {
   /**
    * Visual press feedback:
    * - `'opacity'` — smoothly dims the component on press (default)
@@ -80,9 +81,7 @@ export function Pressable({
   );
 
   // Support function-style style prop — call it with pressed state and apply to RNPressable
-  const resolvedStyle = typeof style === 'function'
-    ? style
-    : style;
+  const resolvedStyle = typeof style === 'function' ? style : style;
 
   return (
     <RNPressable
@@ -94,9 +93,7 @@ export function Pressable({
       style={resolvedStyle}
       {...rest}
     >
-      <Animated.View style={animatedStyle}>
-        {children}
-      </Animated.View>
+      <Animated.View style={animatedStyle}>{children}</Animated.View>
     </RNPressable>
   );
 }

@@ -34,7 +34,9 @@ export interface ThemeContextValue {
   setPalette: (name: string) => void;
 }
 
-export const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
+export const ThemeContext = createContext<ThemeContextValue | undefined>(
+  undefined,
+);
 
 /**
  * Access the current theme and controls.

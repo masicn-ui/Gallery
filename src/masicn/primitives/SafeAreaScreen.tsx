@@ -32,11 +32,8 @@ export function SafeAreaScreen({
   return (
     <SafeAreaView
       edges={edges}
-      style={[
-        styles.root,
-        { backgroundColor: theme.colors.background },
-        style,
-      ]}>
+      style={[styles.root, { backgroundColor: theme.colors.background }, style]}
+    >
       {children}
     </SafeAreaView>
   );

@@ -9,13 +9,7 @@ export function SunIcon({
 }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-      <Circle
-        cx={12}
-        cy={12}
-        r={10}
-        stroke={color}
-        strokeWidth={strokeWidth}
-      />
+      <Circle cx={12} cy={12} r={10} stroke={color} strokeWidth={strokeWidth} />
 
       <Path
         d="M9 16C9.83563 16.6278 10.8744 16.9998 12 16.9998C13.1256 16.9998 14.1644 16.6278 15 16"

@@ -12,8 +12,20 @@
  * ```
  */
 import React from 'react';
-import { View, type ViewProps, type ViewStyle, type ColorValue } from 'react-native';
-import { spacing, radius, borders, type Spacing, type Radius, type Borders } from '../tokens';
+import {
+  View,
+  type ViewProps,
+  type ViewStyle,
+  type ColorValue,
+} from 'react-native';
+import {
+  spacing,
+  radius,
+  borders,
+  type Spacing,
+  type Radius,
+  type Borders,
+} from '../tokens';
 
 interface BoxProps extends ViewProps {
   // ── Spacing ─────────────────────────────────────────────────────────────────
@@ -117,10 +129,16 @@ export function Box({
     <View
       style={[
         padding !== undefined && { padding: spacing[padding] },
-        paddingHorizontal !== undefined && { paddingHorizontal: spacing[paddingHorizontal] },
-        paddingVertical !== undefined && { paddingVertical: spacing[paddingVertical] },
+        paddingHorizontal !== undefined && {
+          paddingHorizontal: spacing[paddingHorizontal],
+        },
+        paddingVertical !== undefined && {
+          paddingVertical: spacing[paddingVertical],
+        },
         paddingTop !== undefined && { paddingTop: spacing[paddingTop] },
-        paddingBottom !== undefined && { paddingBottom: spacing[paddingBottom] },
+        paddingBottom !== undefined && {
+          paddingBottom: spacing[paddingBottom],
+        },
         paddingLeft !== undefined && { paddingLeft: spacing[paddingLeft] },
         paddingRight !== undefined && { paddingRight: spacing[paddingRight] },
         margin !== undefined && { margin: spacing[margin] },
@@ -128,8 +146,12 @@ export function Box({
         marginBottom !== undefined && { marginBottom: spacing[marginBottom] },
         marginLeft !== undefined && { marginLeft: spacing[marginLeft] },
         marginRight !== undefined && { marginRight: spacing[marginRight] },
-        marginHorizontal !== undefined && { marginHorizontal: spacing[marginHorizontal] },
-        marginVertical !== undefined && { marginVertical: spacing[marginVertical] },
+        marginHorizontal !== undefined && {
+          marginHorizontal: spacing[marginHorizontal],
+        },
+        marginVertical !== undefined && {
+          marginVertical: spacing[marginVertical],
+        },
         gap !== undefined && { gap: spacing[gap] },
         flex !== undefined && { flex },
         flexDirection !== undefined && { flexDirection },
@@ -138,13 +160,18 @@ export function Box({
         alignSelf !== undefined && { alignSelf },
         justifyContent !== undefined && { justifyContent },
         backgroundColor !== undefined && { backgroundColor },
-        borderRadiusProp !== undefined && { borderRadius: radius[borderRadiusProp] },
-        borderWidthProp !== undefined && { borderWidth: borders[borderWidthProp] },
+        borderRadiusProp !== undefined && {
+          borderRadius: radius[borderRadiusProp],
+        },
+        borderWidthProp !== undefined && {
+          borderWidth: borders[borderWidthProp],
+        },
         borderColor !== undefined && { borderColor },
         overflow !== undefined && { overflow },
         style,
       ]}
-      {...rest}>
+      {...rest}
+    >
       {children}
     </View>
   );

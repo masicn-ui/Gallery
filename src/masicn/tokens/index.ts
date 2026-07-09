@@ -18,15 +18,15 @@ import { motion } from './motion';
  * ```
  */
 export const MasiTokens = {
-    spacing,
-    radius,
-    borders,
-    sizes,
-    elevation,
-    opacity,
-    iconSizes,
-    layout,
-    motion,
+  spacing,
+  radius,
+  borders,
+  sizes,
+  elevation,
+  opacity,
+  iconSizes,
+  layout,
+  motion,
 };
 
 /**
@@ -38,7 +38,7 @@ export const MasiTokens = {
  * ```
  */
 export function useTokens() {
-    return MasiTokens;
+  return MasiTokens;
 }
 
 // ─── Individual token exports ─────────────────────────────────────────────────
@@ -57,11 +57,11 @@ export type { Radius } from './radius';
 
 export { typography, fonts, fontFamilies } from './typography';
 export type {
-    Typography,
-    TypographyVariant,
-    FontRole,
-    FontWeightKey,
-    FontFamilyKey,
+  Typography,
+  TypographyVariant,
+  FontRole,
+  FontWeightKey,
+  FontFamilyKey,
 } from './typography';
 
 export { elevation } from './elevation';

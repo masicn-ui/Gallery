@@ -43,7 +43,9 @@ interface FocusTrapOptions {
  * <View ref={containerRef} accessible accessibilityViewIsModal>...</View>
  * ```
  */
-export function useFocusTrap({ active, triggerRef }: FocusTrapOptions): { containerRef: React.RefObject<View | null> } {
+export function useFocusTrap({ active, triggerRef }: FocusTrapOptions): {
+  containerRef: React.RefObject<View | null>;
+} {
   const containerRef = useRef<View>(null);
   // Stores the numeric node handle of the trigger element, captured when the trap activates.
   const previousFocusNode = useRef<number | null>(null);

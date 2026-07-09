@@ -48,7 +48,9 @@ interface AccessibilityProps {
  * return <Pressable {...a11y} />;
  * ```
  */
-export function useAccessibilityProps(config: AccessibilityConfig): AccessibilityProps {
+export function useAccessibilityProps(
+  config: AccessibilityConfig,
+): AccessibilityProps {
   return useMemo(() => {
     const props: AccessibilityProps = {
       accessible: true,

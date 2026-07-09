@@ -11,7 +11,9 @@ export { rgba } from './color';
  */
 export function clamp(value: number, min: number, max: number): number {
   if (__DEV__ && min > max) {
-    console.warn(`[masicn] clamp(): min (${min}) > max (${max}). Result is undefined behavior.`);
+    console.warn(
+      `[masicn] clamp(): min (${min}) > max (${max}). Result is undefined behavior.`,
+    );
   }
   return Math.min(Math.max(value, min), max);
 }

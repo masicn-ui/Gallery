@@ -20,7 +20,13 @@ export interface CircleProps extends ViewProps {
  * A perfectly circular container. Useful for avatars, status indicators,
  * icon badges, and any circular UI element.
  */
-export function Circle({ size, backgroundColor, style, children, ...rest }: CircleProps) {
+export function Circle({
+  size,
+  backgroundColor,
+  style,
+  children,
+  ...rest
+}: CircleProps) {
   return (
     <View
       style={[

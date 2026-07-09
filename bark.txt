@@ -3,9 +3,15 @@
 ├── CLAUDE.md
 ├── Gemfile
 ├── Gemfile.lock
+├── LICENSE
 ├── README.md
 ├── __tests__/
-│   └── App.test.tsx
+│   ├── App.test.tsx
+│   ├── screens/
+│   │   └── AppNavigator.test.tsx
+│   └── setup/
+│       ├── jestSetup.ts
+│       └── renderWithTheme.tsx
 ├── android/
 │   ├── app/
 │   │   ├── build.gradle
@@ -122,6 +128,93 @@
 ├── package.json
 ├── react-native.config.js
 ├── src/
+│   ├── app/
+│   │   ├── navigation/
+│   │   │   ├── AppNavigator.tsx
+│   │   │   └── types.ts
+│   │   ├── screens/
+│   │   │   ├── ComingSoonScreen.tsx
+│   │   │   ├── HomeScreen.tsx
+│   │   │   ├── components/
+│   │   │   │   ├── AccordionScreen.tsx
+│   │   │   │   ├── ActionSheetScreen.tsx
+│   │   │   │   ├── AlertScreen.tsx
+│   │   │   │   ├── AvatarGroupScreen.tsx
+│   │   │   │   ├── AvatarScreen.tsx
+│   │   │   │   ├── BadgeScreen.tsx
+│   │   │   │   ├── BottomSheetScreen.tsx
+│   │   │   │   ├── BreadcrumbScreen.tsx
+│   │   │   │   ├── ButtonScreen.tsx
+│   │   │   │   ├── CardScreen.tsx
+│   │   │   │   ├── CarouselScreen.tsx
+│   │   │   │   ├── CheckboxGroupScreen.tsx
+│   │   │   │   ├── CheckboxScreen.tsx
+│   │   │   │   ├── ChipInputScreen.tsx
+│   │   │   │   ├── ChipScreen.tsx
+│   │   │   │   ├── CodeInputScreen.tsx
+│   │   │   │   ├── CollapsibleScreen.tsx
+│   │   │   │   ├── ConfirmScreen.tsx
+│   │   │   │   ├── ContextMenuScreen.tsx
+│   │   │   │   ├── DetailRowScreen.tsx
+│   │   │   │   ├── DockScreen.tsx
+│   │   │   │   ├── DotScreen.tsx
+│   │   │   │   ├── DrawerScreen.tsx
+│   │   │   │   ├── DualSheetScreen.tsx
+│   │   │   │   ├── EmptyStateScreen.tsx
+│   │   │   │   ├── ExpandableScreen.tsx
+│   │   │   │   ├── FABScreen.tsx
+│   │   │   │   ├── FormScreen.tsx
+│   │   │   │   ├── ImageScreen.tsx
+│   │   │   │   ├── JsonTreeScreen.tsx
+│   │   │   │   ├── LeftSheetScreen.tsx
+│   │   │   │   ├── LinkScreen.tsx
+│   │   │   │   ├── ListItemScreen.tsx
+│   │   │   │   ├── LoaderScreen.tsx
+│   │   │   │   ├── MenuScreen.tsx
+│   │   │   │   ├── ModalScreen.tsx
+│   │   │   │   ├── NumericScreen.tsx
+│   │   │   │   ├── PaginationScreen.tsx
+│   │   │   │   ├── PhoneScreen.tsx
+│   │   │   │   ├── PinScreen.tsx
+│   │   │   │   ├── PopoverScreen.tsx
+│   │   │   │   ├── ProgressRingScreen.tsx
+│   │   │   │   ├── ProgressScreen.tsx
+│   │   │   │   ├── RadioScreen.tsx
+│   │   │   │   ├── RangeSliderScreen.tsx
+│   │   │   │   ├── RatingScreen.tsx
+│   │   │   │   ├── RightSheetScreen.tsx
+│   │   │   │   ├── SearchBarScreen.tsx
+│   │   │   │   ├── SecureInputScreen.tsx
+│   │   │   │   ├── SegmentScreen.tsx
+│   │   │   │   ├── SelectScreen.tsx
+│   │   │   │   ├── ShimmerScreen.tsx
+│   │   │   │   ├── SkeletonScreen.tsx
+│   │   │   │   ├── SliderScreen.tsx
+│   │   │   │   ├── SnackbarScreen.tsx
+│   │   │   │   ├── SpinnerScreen.tsx
+│   │   │   │   ├── StepperScreen.tsx
+│   │   │   │   ├── SwipeButtonScreen.tsx
+│   │   │   │   ├── SwipeableScreen.tsx
+│   │   │   │   ├── SwitchScreen.tsx
+│   │   │   │   ├── TabsScreen.tsx
+│   │   │   │   ├── TagScreen.tsx
+│   │   │   │   ├── TextInputScreen.tsx
+│   │   │   │   ├── TextareaScreen.tsx
+│   │   │   │   ├── TickerScreen.tsx
+│   │   │   │   ├── TimelineScreen.tsx
+│   │   │   │   ├── ToastScreen.tsx
+│   │   │   │   ├── ToggleGroupScreen.tsx
+│   │   │   │   ├── TooltipScreen.tsx
+│   │   │   │   └── TopSheetScreen.tsx
+│   │   │   └── layouts/
+│   │   │       ├── MasonryGridScreen.tsx
+│   │   │       ├── RefreshableListScreen.tsx
+│   │   │       └── RefreshableScrollViewScreen.tsx
+│   │   └── shared/
+│   │       ├── ComponentListItem.tsx
+│   │       ├── ScreenLayout.tsx
+│   │       ├── ShowcaseSection.tsx
+│   │       └── VariantRow.tsx
 │   ├── masicn/
 │   │   ├── WelcomeScreen.tsx
 │   │   ├── hooks/
@@ -207,9 +300,85 @@
 │   │       ├── color.ts
 │   │       └── index.ts
 │   └── shared/
+│       ├── blocks/
+│       │   ├── ActionSheet.tsx
+│       │   ├── Breadcrumb.tsx
+│       │   ├── Carousel.tsx
+│       │   ├── CarouselDots.tsx
+│       │   ├── CarouselSlide.tsx
+│       │   ├── ChipInput.tsx
+│       │   ├── CodeInput.tsx
+│       │   ├── Confirm.tsx
+│       │   ├── DualSheet.tsx
+│       │   ├── EmptyState.tsx
+│       │   ├── Form.tsx
+│       │   ├── JsonTree.tsx
+│       │   ├── MasonryGrid.tsx
+│       │   ├── Numeric.tsx
+│       │   ├── Pagination.tsx
+│       │   ├── Phone.tsx
+│       │   ├── RefreshableList.tsx
+│       │   ├── RefreshableScrollView.tsx
+│       │   ├── Stepper.tsx
+│       │   ├── Swipeable.tsx
+│       │   ├── Timeline.tsx
+│       │   └── useCarousel.ts
 │       └── components/
+│           ├── Accordion.tsx
+│           ├── Alert.tsx
+│           ├── Avatar.tsx
+│           ├── AvatarGroup.tsx
+│           ├── Badge.tsx
+│           ├── BottomSheet.tsx
 │           ├── Button.tsx
+│           ├── Card.tsx
+│           ├── Checkbox.tsx
+│           ├── CheckboxGroup.tsx
+│           ├── Chip.tsx
+│           ├── Collapsible.tsx
+│           ├── ContextMenu.tsx
+│           ├── DetailRow.tsx
+│           ├── Dock.tsx
+│           ├── Dot.tsx
+│           ├── Drawer.tsx
+│           ├── Expandable.tsx
+│           ├── FAB.tsx
+│           ├── Image.tsx
+│           ├── LeftSheet.tsx
+│           ├── Link.tsx
+│           ├── ListItem.tsx
+│           ├── Loader.tsx
+│           ├── Menu.tsx
+│           ├── Modal.tsx
+│           ├── Pin.tsx
+│           ├── Popover.tsx
+│           ├── Progress.tsx
+│           ├── ProgressRing.tsx
+│           ├── Radio.tsx
+│           ├── RangeSlider.tsx
+│           ├── Rating.tsx
+│           ├── RightSheet.tsx
+│           ├── SearchBar.tsx
+│           ├── SecureInput.tsx
+│           ├── Segment.tsx
+│           ├── Select.tsx
+│           ├── Shimmer.tsx
+│           ├── Skeleton.tsx
+│           ├── Slider.tsx
+│           ├── Snackbar.tsx
+│           ├── Spinner.tsx
+│           ├── SwipeButton.tsx
+│           ├── Switch.tsx
+│           ├── Tabs.tsx
+│           ├── Tag.tsx
+│           ├── TextInput.tsx
+│           ├── Textarea.tsx
+│           ├── Ticker.tsx
+│           ├── Toast.tsx
+│           ├── ToggleGroup.tsx
+│           ├── Tooltip.tsx
+│           ├── TopSheet.tsx
 │           └── index.ts
 └── tsconfig.json
 
-49 directories, 163 files
+58 directories, 323 files

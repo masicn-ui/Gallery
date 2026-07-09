@@ -36,7 +36,25 @@ export {
   useTokens,
 } from './tokens';
 
-export type { Spacing, Radius, Borders, Elevation, Layout, Opacity, IconSizes, Typography, TypographyVariant, FontRole, FontWeightKey, FontFamilyKey, GradientPreset, GradientDirection, LineHeightRatio, LetterSpacing, Motion } from './tokens';
+export type {
+  Spacing,
+  Radius,
+  Borders,
+  Elevation,
+  Layout,
+  Opacity,
+  IconSizes,
+  Typography,
+  TypographyVariant,
+  FontRole,
+  FontWeightKey,
+  FontFamilyKey,
+  GradientPreset,
+  GradientDirection,
+  LineHeightRatio,
+  LetterSpacing,
+  Motion,
+} from './tokens';
 
 // ─── Animation ────────────────────────────────────
 export { motionEasing } from './tokens';
@@ -86,7 +104,17 @@ export {
   Icon,
 } from './primitives';
 
-export type { PressableProps, SurfaceProps, CenterProps, WrapProps, AspectRatioProps, CircleProps, SquareProps, IconProps, IconComponent } from './primitives';
+export type {
+  PressableProps,
+  SurfaceProps,
+  CenterProps,
+  WrapProps,
+  AspectRatioProps,
+  CircleProps,
+  SquareProps,
+  IconProps,
+  IconComponent,
+} from './primitives';
 
 // ─── Hooks ────────────────────────────────────────
 export {

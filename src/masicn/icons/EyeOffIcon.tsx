@@ -8,12 +8,7 @@ export function EyeOffIcon({
   strokeWidth = 1.5,
 }: IconProps) {
   return (
-    <Svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-    >
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <Path
         d="M22 8C22 8 18 14 12 14C6 14 2 8 2 8"
         stroke={color}

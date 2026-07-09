@@ -7,7 +7,9 @@ import { THEME_VERSION } from './version';
  * Override shape — every key is optional so you only provide what you want to change.
  */
 type DeepPartial<T> = {
-  [K in keyof T]?: T[K] extends Record<string, unknown> ? DeepPartial<T[K]> : T[K];
+  [K in keyof T]?: T[K] extends Record<string, unknown>
+    ? DeepPartial<T[K]>
+    : T[K];
 };
 
 type ThemeOverride = DeepPartial<Theme>;
@@ -61,7 +63,9 @@ export interface ThemePair {
  * });
  * ```
  */
-export function createTheme(overrides: { light?: ThemeOverride; dark?: ThemeOverride } = {}): ThemePair {
+export function createTheme(
+  overrides: { light?: ThemeOverride; dark?: ThemeOverride } = {},
+): ThemePair {
   const light = mergeTheme(lightTheme, overrides.light ?? {});
   const dark = mergeTheme(darkTheme, overrides.dark ?? {});
 
@@ -73,14 +77,20 @@ export function createTheme(overrides: { light?: ThemeOverride; dark?: ThemeOver
 
     // Only warn when the caller has actually provided color overrides — not on a bare createTheme() call.
     if (hasLightColors || hasDarkColors) {
-      const missingLight = hasLightColors ? findMissingTokens(lightTheme, lightOverride) : [];
-      const missingDark = hasDarkColors ? findMissingTokens(darkTheme, darkOverride) : [];
+      const missingLight = hasLightColors
+        ? findMissingTokens(lightTheme, lightOverride)
+        : [];
+      const missingDark = hasDarkColors
+        ? findMissingTokens(darkTheme, darkOverride)
+        : [];
       const allMissing = [...new Set([...missingLight, ...missingDark])];
       if (allMissing.length > 0) {
         console.warn(
           `[masicn v${THEME_VERSION}] createTheme: the following tokens are not covered by your override ` +
-          `and will fall back to the 'masi' palette defaults:\n  ${allMissing.join(', ')}\n` +
-          `This may cause unexpected colors if you've customised background or surface tokens.`,
+            `and will fall back to the 'masi' palette defaults:\n  ${allMissing.join(
+              ', ',
+            )}\n` +
+            `This may cause unexpected colors if you've customised background or surface tokens.`,
         );
       }
     }

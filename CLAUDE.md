@@ -13,22 +13,36 @@ Playground  →  builds components, tests edge cases
 Gallery     →  showcases components in real compositions, feeds docs visuals
 ```
 
-Gallery does **not** author components. It consumes them from `@masicn/ui` (design system) and copies/imports registry component source for display purposes.
+Gallery does **not** author components. It consumes the design system and registry component source the same way an end user would: `@masicn/ui` is a **local copy** at `src/masicn/` (`masicn.json` → `localDesignSystem: true`, `designSystemDir: "src/masicn"`), not an npm dependency or workspace symlink, and every component/block was written to `src/shared/{components,blocks}/` via `npx masicn add <name>` — flat files (`src/shared/components/Button.tsx`), not the per-item subdirectory layout Playground uses for authoring.
 
 ## Commands
 
 ```bash
 npm start              # Start Metro dev server
 npm run android        # Build & run on Android
-npm run ios            # Build & run on iOS
+npm run ios            # Build & run on iOS (run `pod install` in ios/ first)
 npm run lint           # ESLint
 npm test               # Jest
 ```
 
+## Structure
+
+```
+App.tsx                          # Providers + NavigationContainer + AppNavigator
+src/masicn/                      # Local @masicn/ui copy (written by `masicn init`)
+src/shared/components/           # Flat component files (written by `masicn add`)
+src/shared/blocks/                # Flat block/layout files (written by `masicn add`)
+src/app/navigation/AppNavigator.tsx  # SCREEN_MAP + Stack.Navigator
+src/app/screens/HomeScreen.tsx   # Sectioned list of all 73 registry items
+src/app/screens/components/      # One showcase screen per component/block
+src/app/screens/layouts/         # Showcase screens for the 3 layout-category blocks
+src/app/shared/                  # ScreenLayout, ShowcaseSection, VariantRow, ComponentListItem
+```
+
 ## What Goes Here
 
-- **Showcase screens** — one per registry component, showing all variants in a realistic composition
-- **Example UIs** — full-screen flows (e.g. a login screen using PhoneInput + OTPInput + Button)
+- **Showcase screens** — one per registry component/block, showing all variants in a realistic composition
+- **Example UIs** — full-screen flows (e.g. a "verify your phone number" screen using `Phone` + `CodeInput` + `Button`)
 - **Composition examples** — card lists, form layouts, navigation patterns using multiple components together
 
 ## What Does NOT Go Here
@@ -39,7 +53,8 @@ npm test               # Jest
 
 ## Key Dependencies
 
-- `@masicn/ui` — linked locally (symlink / workspace)
+- `@masicn/ui` — local copy at `src/masicn/`, not linked/symlinked
+- `@react-navigation/native` + `@react-navigation/native-stack` — screen navigation
 - `react-native-reanimated` — for all animated components
 - `react-native-gesture-handler` — for gesture-driven components
 - `react-native-safe-area-context` — for layout

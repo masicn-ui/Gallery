@@ -18,7 +18,13 @@ export interface CenterProps extends ViewProps {
   padding?: keyof Spacing;
 }
 
-export function Center({ children, style, flex, padding, ...rest }: CenterProps) {
+export function Center({
+  children,
+  style,
+  flex,
+  padding,
+  ...rest
+}: CenterProps) {
   return (
     <View
       style={[

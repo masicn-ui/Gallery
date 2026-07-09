@@ -29,8 +29,9 @@ interface MasicnContextValue {
   unmount: (key: string) => void;
 }
 
-export const MasicnContext =
-  React.createContext<MasicnContextValue | null>(null);
+export const MasicnContext = React.createContext<MasicnContextValue | null>(
+  null,
+);
 
 interface MasicnProviderProps {
   children: React.ReactNode;
@@ -78,14 +79,19 @@ export function MasicnProvider({
     [notify],
   );
 
-  const unmount = React.useCallback((key: string) => {
-    portalsRef.current.delete(key);
-    notify();
-  }, [notify]);
+  const unmount = React.useCallback(
+    (key: string) => {
+      portalsRef.current.delete(key);
+      notify();
+    },
+    [notify],
+  );
 
   const subscribe = React.useCallback((listener: () => void) => {
     listenersRef.current.add(listener);
-    return () => { listenersRef.current.delete(listener); };
+    return () => {
+      listenersRef.current.delete(listener);
+    };
   }, []);
 
   const contextValue = React.useMemo(

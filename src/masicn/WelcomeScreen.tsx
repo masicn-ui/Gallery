@@ -2,11 +2,19 @@ import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import {
   useTheme,
-  spacing, radius, borders, opacity,
+  spacing,
+  radius,
+  borders,
+  opacity,
   rgba,
   Icon,
-  CheckIcon, PaletteIcon, PaintBoardIcon, SettingsIcon,
-  StarIcon, ChevronRightIcon, InboxIcon,
+  CheckIcon,
+  PaletteIcon,
+  PaintBoardIcon,
+  SettingsIcon,
+  StarIcon,
+  ChevronRightIcon,
+  InboxIcon,
 } from '.';
 import { lightTheme } from './theme/light';
 import { darkTheme } from './theme/dark';
@@ -29,16 +37,16 @@ import {
 // ── Constants ─────────────────────────────────────────────────────────────────
 
 const PALETTE_LABEL_WIDTH = 56;
-const TRAFFIC_RED   = '#ff5f57';
+const TRAFFIC_RED = '#ff5f57';
 const TRAFFIC_AMBER = '#ffbd2e';
 const TRAFFIC_GREEN = '#28ca41';
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const STATS = [
-  { value: '54',  label: 'Components' },
-  { value: '20',  label: 'Blocks' },
-  { value: '15',  label: 'Palettes' },
+  { value: '54', label: 'Components' },
+  { value: '20', label: 'Blocks' },
+  { value: '15', label: 'Palettes' },
 ] as const;
 
 const HIGHLIGHTS = [
@@ -75,14 +83,31 @@ const HIGHLIGHTS = [
 ] as const;
 
 const PRIMITIVES_LIST = [
-  'Box', 'Stack', 'Row', 'Wrap', 'Center',
-  'Spacer', 'Divider', 'Surface', 'Circle', 'Square',
-  'AspectRatio', 'Pressable', 'Text', 'Screen', 'Icon',
+  'Box',
+  'Stack',
+  'Row',
+  'Wrap',
+  'Center',
+  'Spacer',
+  'Divider',
+  'Surface',
+  'Circle',
+  'Square',
+  'AspectRatio',
+  'Pressable',
+  'Text',
+  'Screen',
+  'Icon',
 ];
 
 const PALETTE_KEYS = [
-  'primary', 'secondary', 'background',
-  'surfacePrimary', 'accent', 'error', 'success',
+  'primary',
+  'secondary',
+  'background',
+  'surfacePrimary',
+  'accent',
+  'error',
+  'success',
 ] as const;
 
 const TERMINAL_CMDS = [
@@ -100,10 +125,16 @@ function LogoMark() {
     <Row gap="xs" align="center">
       <Circle size={20} backgroundColor={theme.colors.primary}>
         <Center flex={1}>
-          <Square size={8} backgroundColor={theme.colors.onPrimary} borderRadius="xs" />
+          <Square
+            size={8}
+            backgroundColor={theme.colors.onPrimary}
+            borderRadius="xs"
+          />
         </Center>
       </Circle>
-      <Text variant="label" color="textSecondary" bold>masicn</Text>
+      <Text variant="label" color="textSecondary" bold>
+        masicn
+      </Text>
     </Row>
   );
 }
@@ -112,7 +143,9 @@ function SectionLabel({ label }: { label: string }) {
   return (
     <Row gap="xs" align="center">
       <Box style={styles.sectionPip} />
-      <Text variant="sectionHeader" color="textTertiary">{label.toUpperCase()}</Text>
+      <Text variant="sectionHeader" color="textTertiary">
+        {label.toUpperCase()}
+      </Text>
     </Row>
   );
 }
@@ -129,10 +162,16 @@ function Hero() {
       <Row align="center">
         <LogoMark />
         <Spacer />
-        <Surface level="none" borderRadius="full" style={[styles.versionPill, { backgroundColor: accentBg }]}>
+        <Surface
+          level="none"
+          borderRadius="full"
+          style={[styles.versionPill, { backgroundColor: accentBg }]}
+        >
           <Row gap="xs" align="center">
             <Circle size={5} backgroundColor={theme.colors.success} />
-            <Text variant="captionSmall" color="textSecondary">v0.1.0 · MIT</Text>
+            <Text variant="captionSmall" color="textSecondary">
+              v0.1.0 · MIT
+            </Text>
           </Row>
         </Surface>
       </Row>
@@ -141,9 +180,13 @@ function Hero() {
 
       {/* Headline */}
       <Stack gap="sm">
-        <Text variant="h1" color="textPrimary">{'Build beautiful\nReact Native apps.'}</Text>
+        <Text variant="h1" color="textPrimary">
+          {'Build beautiful\nReact Native apps.'}
+        </Text>
         <Text variant="bodyLarge" color="textSecondary">
-          {'A copy-paste design system. Own every pixel, every token, every line.'}
+          {
+            'A copy-paste design system. Own every pixel, every token, every line.'
+          }
         </Text>
       </Stack>
 
@@ -156,9 +199,14 @@ function Hero() {
             key={label}
             level="sm"
             borderRadius="lg"
-            style={styles.statCard}>
-            <Text variant="h2" color="textPrimary" bold>{value}</Text>
-            <Text variant="captionSmall" color="textTertiary">{label}</Text>
+            style={styles.statCard}
+          >
+            <Text variant="h2" color="textPrimary" bold>
+              {value}
+            </Text>
+            <Text variant="captionSmall" color="textTertiary">
+              {label}
+            </Text>
           </Surface>
         ))}
       </Row>
@@ -168,7 +216,7 @@ function Hero() {
 
 // ── Highlights ────────────────────────────────────────────────────────────────
 
-function HighlightCard({ icon, title, desc }: typeof HIGHLIGHTS[number]) {
+function HighlightCard({ icon, title, desc }: (typeof HIGHLIGHTS)[number]) {
   const { theme } = useTheme();
   const iconBg = rgba(theme.colors.primary, opacity.tintMedium);
 
@@ -181,8 +229,12 @@ function HighlightCard({ icon, title, desc }: typeof HIGHLIGHTS[number]) {
           </Center>
         </Circle>
         <Stack gap="xs">
-          <Text variant="titleSmall" color="textPrimary" bold>{title}</Text>
-          <Text variant="bodySmall" color="textSecondary">{desc}</Text>
+          <Text variant="titleSmall" color="textPrimary" bold>
+            {title}
+          </Text>
+          <Text variant="bodySmall" color="textSecondary">
+            {desc}
+          </Text>
         </Stack>
       </Stack>
     </Surface>
@@ -190,7 +242,9 @@ function HighlightCard({ icon, title, desc }: typeof HIGHLIGHTS[number]) {
 }
 
 function Highlights() {
-  const pairs: Array<[typeof HIGHLIGHTS[number], typeof HIGHLIGHTS[number] | undefined]> = [];
+  const pairs: Array<
+    [(typeof HIGHLIGHTS)[number], (typeof HIGHLIGHTS)[number] | undefined]
+  > = [];
   for (let i = 0; i < HIGHLIGHTS.length; i += 2) {
     pairs.push([HIGHLIGHTS[i], HIGHLIGHTS[i + 1]]);
   }
@@ -202,10 +256,16 @@ function Highlights() {
       <Stack gap="md">
         {pairs.map(([a, b], i) => (
           <Row key={i} gap="md">
-            <Box style={styles.flex1}><HighlightCard {...a} /></Box>
-            {b
-              ? <Box style={styles.flex1}><HighlightCard {...b} /></Box>
-              : <Box style={styles.flex1} />}
+            <Box style={styles.flex1}>
+              <HighlightCard {...a} />
+            </Box>
+            {b ? (
+              <Box style={styles.flex1}>
+                <HighlightCard {...b} />
+              </Box>
+            ) : (
+              <Box style={styles.flex1} />
+            )}
           </Row>
         ))}
       </Stack>
@@ -217,20 +277,24 @@ function Highlights() {
 
 function Terminal() {
   const { theme } = useTheme();
-  const onPrimary     = theme.colors.onPrimary;
-  const dimColor      = rgba(onPrimary, opacity.overlayLight);
-  const dividerColor  = rgba(onPrimary, opacity.tint);
-  const successColor  = theme.colors.success;
+  const onPrimary = theme.colors.onPrimary;
+  const dimColor = rgba(onPrimary, opacity.overlayLight);
+  const dividerColor = rgba(onPrimary, opacity.tint);
+  const successColor = theme.colors.success;
 
   return (
-    <Box style={[styles.terminal, { backgroundColor: theme.colors.textPrimary }]}>
+    <Box
+      style={[styles.terminal, { backgroundColor: theme.colors.textPrimary }]}
+    >
       {/* Title bar */}
       <Row gap="xs" style={styles.terminalBar} align="center">
         <Circle size={10} backgroundColor={TRAFFIC_RED} />
         <Circle size={10} backgroundColor={TRAFFIC_AMBER} />
         <Circle size={10} backgroundColor={TRAFFIC_GREEN} />
         <Spacer />
-        <Text variant="captionSmall" style={{ color: dimColor }}>terminal</Text>
+        <Text variant="captionSmall" style={{ color: dimColor }}>
+          terminal
+        </Text>
       </Row>
 
       <Divider style={{ backgroundColor: dividerColor }} />
@@ -246,7 +310,8 @@ function Terminal() {
                 style={[
                   styles.terminalMono,
                   { color: isSuccess ? successColor : dimColor },
-                ]}>
+                ]}
+              >
                 {cmd.prompt}
               </Text>
               <Text
@@ -254,7 +319,8 @@ function Terminal() {
                 style={[
                   styles.terminalMono,
                   { color: isSuccess ? successColor : onPrimary },
-                ]}>
+                ]}
+              >
                 {cmd.text}
               </Text>
             </Row>
@@ -285,15 +351,21 @@ function PrimitivesSection() {
         <SectionLabel label="Primitives" />
         <Spacer />
         <Surface level="none" borderRadius="full" style={styles.countBadge}>
-          <Text variant="captionSmall" color="textTertiary">{PRIMITIVES_LIST.length} built-in</Text>
+          <Text variant="captionSmall" color="textTertiary">
+            {PRIMITIVES_LIST.length} built-in
+          </Text>
         </Surface>
       </Row>
       <Box style={styles.labelGap} />
       <Wrap gap="sm">
         {PRIMITIVES_LIST.map(name => (
           <Pressable key={name} feedback="opacity">
-            <Box style={[styles.chip, { borderColor: theme.colors.borderPrimary }]}>
-              <Text variant="captionSmall" color="textSecondary">{name}</Text>
+            <Box
+              style={[styles.chip, { borderColor: theme.colors.borderPrimary }]}
+            >
+              <Text variant="captionSmall" color="textSecondary">
+                {name}
+              </Text>
             </Box>
           </Pressable>
         ))}
@@ -305,7 +377,9 @@ function PrimitivesSection() {
 // ── Palette ───────────────────────────────────────────────────────────────────
 
 function PaletteRow({
-  emoji, label, colors,
+  emoji,
+  label,
+  colors,
 }: {
   emoji: string;
   label: string;
@@ -318,7 +392,9 @@ function PaletteRow({
     <Row gap="md" align="center">
       <Row gap="xs" align="center" style={styles.paletteLabel}>
         <Text variant="caption">{emoji}</Text>
-        <Text variant="captionSmall" color="textTertiary">{label}</Text>
+        <Text variant="captionSmall" color="textTertiary">
+          {label}
+        </Text>
       </Row>
       <Row gap="xs" style={styles.flex1}>
         {PALETTE_KEYS.map(key => (
@@ -330,7 +406,11 @@ function PaletteRow({
           />
         ))}
       </Row>
-      <Icon icon={ChevronRightIcon} size={14} color={theme.colors.textTertiary} />
+      <Icon
+        icon={ChevronRightIcon}
+        size={14}
+        color={theme.colors.textTertiary}
+      />
     </Row>
   );
 }
@@ -344,7 +424,7 @@ function PaletteSection() {
         <Stack gap="lg">
           <PaletteRow emoji="☀️" label="Light" colors={lightTheme.colors} />
           <Divider />
-          <PaletteRow emoji="🌙" label="Dark"  colors={darkTheme.colors} />
+          <PaletteRow emoji="🌙" label="Dark" colors={darkTheme.colors} />
         </Stack>
       </Surface>
     </Box>
@@ -363,11 +443,23 @@ function Footer() {
       <Stack gap="lg">
         <LogoMark />
         <Row gap="sm">
-          <Surface level="none" borderRadius="full" style={[styles.footerPill, { backgroundColor: accentBg }]}>
-            <Text variant="captionSmall" color="textSecondary">masicn.dev</Text>
+          <Surface
+            level="none"
+            borderRadius="full"
+            style={[styles.footerPill, { backgroundColor: accentBg }]}
+          >
+            <Text variant="captionSmall" color="textSecondary">
+              masicn.dev
+            </Text>
           </Surface>
-          <Surface level="none" borderRadius="full" style={[styles.footerPill, { backgroundColor: accentBg }]}>
-            <Text variant="captionSmall" color="textSecondary">GitHub</Text>
+          <Surface
+            level="none"
+            borderRadius="full"
+            style={[styles.footerPill, { backgroundColor: accentBg }]}
+          >
+            <Text variant="captionSmall" color="textSecondary">
+              GitHub
+            </Text>
           </Surface>
         </Row>
         <Text variant="captionSmall" color="textTertiary" align="center">
@@ -399,7 +491,8 @@ export function MasicnWelcomeScreen() {
       <ScrollView
         style={{ backgroundColor: theme.colors.background }}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}>
+        contentContainerStyle={styles.scrollContent}
+      >
         <Hero />
         <Divider inset style={styles.sectionDivider} />
         <Highlights />

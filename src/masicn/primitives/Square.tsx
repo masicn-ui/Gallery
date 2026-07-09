@@ -22,7 +22,14 @@ export interface SquareProps extends ViewProps {
  * A fixed square container. Useful for icon wrappers, thumbnail placeholders,
  * and any UI element that must maintain equal width and height.
  */
-export function Square({ size, backgroundColor, borderRadius: borderRadiusProp, style, children, ...rest }: SquareProps) {
+export function Square({
+  size,
+  backgroundColor,
+  borderRadius: borderRadiusProp,
+  style,
+  children,
+  ...rest
+}: SquareProps) {
   return (
     <View
       style={[
@@ -31,7 +38,9 @@ export function Square({ size, backgroundColor, borderRadius: borderRadiusProp, 
           height: size,
           backgroundColor,
         },
-        borderRadiusProp !== undefined && { borderRadius: radius[borderRadiusProp] },
+        borderRadiusProp !== undefined && {
+          borderRadius: radius[borderRadiusProp],
+        },
         style,
       ]}
       {...rest}

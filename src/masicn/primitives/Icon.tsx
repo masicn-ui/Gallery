@@ -34,9 +34,20 @@ interface Props {
  * @example
  * <Icon icon={SearchIcon} size={20} />
  */
-export function Icon({ icon: IconComp, size = 'default', color, strokeWidth = 1.5 }: Props) {
+export function Icon({
+  icon: IconComp,
+  size = 'default',
+  color,
+  strokeWidth = 1.5,
+}: Props) {
   const { theme } = useTheme();
   const resolvedSize = typeof size === 'number' ? size : iconSizes[size];
   const resolvedColor = color ?? theme.colors.textPrimary;
-  return <IconComp size={resolvedSize} color={resolvedColor} strokeWidth={strokeWidth} />;
+  return (
+    <IconComp
+      size={resolvedSize}
+      color={resolvedColor}
+      strokeWidth={strokeWidth}
+    />
+  );
 }

@@ -42,7 +42,8 @@ export function Row({
         wrap && styles.wrap,
         style,
       ]}
-      {...rest}>
+      {...rest}
+    >
       {children}
     </View>
   );

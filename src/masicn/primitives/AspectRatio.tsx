@@ -13,7 +13,12 @@ export interface AspectRatioProps extends ViewProps {
  * Constrains its child to a fixed aspect ratio.
  * Useful for image thumbnails, video players, and map previews.
  */
-export function AspectRatio({ ratio, children, style, ...rest }: AspectRatioProps) {
+export function AspectRatio({
+  ratio,
+  children,
+  style,
+  ...rest
+}: AspectRatioProps) {
   return (
     <View style={[{ aspectRatio: ratio }, style]} {...rest}>
       {children}

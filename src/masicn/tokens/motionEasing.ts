@@ -13,17 +13,17 @@ import { Easing as ReanimatedEasing } from 'react-native-reanimated';
  * ```
  */
 export const motionEasing = {
-    /** Smooth in-out — default for most UI transitions */
-    standard: ReanimatedEasing.inOut(ReanimatedEasing.ease),
+  /** Smooth in-out — default for most UI transitions */
+  standard: ReanimatedEasing.inOut(ReanimatedEasing.ease),
 
-    /** Starts slow, accelerates — use for elements leaving the screen */
-    accelerate: ReanimatedEasing.in(ReanimatedEasing.ease),
+  /** Starts slow, accelerates — use for elements leaving the screen */
+  accelerate: ReanimatedEasing.in(ReanimatedEasing.ease),
 
-    /** Starts fast, decelerates — use for elements entering the screen */
-    decelerate: ReanimatedEasing.out(ReanimatedEasing.ease),
+  /** Starts fast, decelerates — use for elements entering the screen */
+  decelerate: ReanimatedEasing.out(ReanimatedEasing.ease),
 
-    /** Constant rate — use for progress indicators, loaders */
-    linear: ReanimatedEasing.linear,
+  /** Constant rate — use for progress indicators, loaders */
+  linear: ReanimatedEasing.linear,
 } as const;
 
 export type MotionEasing = typeof motionEasing;

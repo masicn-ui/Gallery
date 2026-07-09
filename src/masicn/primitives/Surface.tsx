@@ -2,7 +2,14 @@ import React from 'react';
 import { View, type ViewProps, type ViewStyle } from 'react-native';
 import { useTheme } from '../theme';
 import type { Theme } from '../theme';
-import { elevation, radius, spacing, type Elevation, type Radius, type Spacing } from '../tokens';
+import {
+  elevation,
+  radius,
+  spacing,
+  type Elevation,
+  type Radius,
+  type Spacing,
+} from '../tokens';
 
 type SurfaceBackground = keyof Theme['colors'];
 
@@ -46,11 +53,20 @@ export function Surface({
     <View
       style={[
         elevation[level],
-        { backgroundColor: theme.colors[background], shadowColor: theme.colors.shadow },
-        borderRadiusProp !== undefined && { borderRadius: radius[borderRadiusProp] },
+        {
+          backgroundColor: theme.colors[background],
+          shadowColor: theme.colors.shadow,
+        },
+        borderRadiusProp !== undefined && {
+          borderRadius: radius[borderRadiusProp],
+        },
         padding !== undefined && { padding: spacing[padding] },
-        paddingHorizontal !== undefined && { paddingHorizontal: spacing[paddingHorizontal] },
-        paddingVertical !== undefined && { paddingVertical: spacing[paddingVertical] },
+        paddingHorizontal !== undefined && {
+          paddingHorizontal: spacing[paddingHorizontal],
+        },
+        paddingVertical !== undefined && {
+          paddingVertical: spacing[paddingVertical],
+        },
         flex !== undefined && { flex },
         style,
       ]}

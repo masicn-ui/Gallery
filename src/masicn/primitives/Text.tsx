@@ -50,7 +50,9 @@ const boldFontMap = new Map<string, string>(
 );
 
 function getBoldFont(fontFamily?: string): string | undefined {
-  if (!fontFamily) { return fontFamily; }
+  if (!fontFamily) {
+    return fontFamily;
+  }
   return boldFontMap.get(fontFamily) ?? fontFamily;
 }
 

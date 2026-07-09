@@ -45,7 +45,8 @@ export function Screen({
         padded && styles.padded,
         style,
       ]}
-      {...rest}>
+      {...rest}
+    >
       {children}
     </View>
   );

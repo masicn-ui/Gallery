@@ -8,12 +8,7 @@ export function ArrowLeftIcon({
   strokeWidth = 1.5,
 }: IconProps) {
   return (
-    <Svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-    >
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
       <Path
         d="M5.5 12.002H19"
         stroke={color}

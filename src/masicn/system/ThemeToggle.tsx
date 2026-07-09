@@ -55,13 +55,13 @@ export function ThemeToggle({ size = 20, style, testID }: ThemeToggleProps) {
     rotation.value = withTiming(
       180,
       { duration: dur, easing: Easing.in(Easing.cubic) },
-      (finished) => {
+      finished => {
         if (finished) {
           scheduleOnRN(setMode, nextMode);
           rotation.value = withTiming(
             360,
             { duration: dur, easing: Easing.out(Easing.cubic) },
-            (fin) => {
+            fin => {
               if (fin) {
                 rotation.value = 0;
               }
@@ -85,7 +85,11 @@ export function ThemeToggle({ size = 20, style, testID }: ThemeToggleProps) {
       accessibilityLabel={`Switch to ${nextMode} mode`}
     >
       <Animated.View style={[animatedStyle, style]}>
-        <ModeIcon size={size} color={theme.colors.textSecondary} strokeWidth={1.5} />
+        <ModeIcon
+          size={size}
+          color={theme.colors.textSecondary}
+          strokeWidth={1.5}
+        />
       </Animated.View>
     </Pressable>
   );
