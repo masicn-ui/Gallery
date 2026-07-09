@@ -1,17 +1,24 @@
-Create a new showcase screen for the component named $ARGUMENTS.
+Create a new showcase screen for the component or block named $ARGUMENTS.
 
 ## Existing showcase screens:
-!`find src -name "*Showcase*" -o -name "*Screen*" 2>/dev/null | grep -v node_modules | head -20`
+!`find src/app/screens -name "*Screen.tsx" 2>/dev/null | grep -v node_modules | head -20`
 
-## Component source from Playground registry:
-!`find /Users/varun/Dev/masicn-ui/registry/components/$ARGUMENTS -type f 2>/dev/null`
+## Component/block source (installed via `masicn add`, flat file — no per-item subdirectory):
+!`find src/shared/components src/shared/blocks -iname "$ARGUMENTS*" 2>/dev/null`
 
-Create a showcase screen at `src/screens/$ARGUMENTS/$ARGUMENTS Showcase.tsx` (or match the existing naming pattern) that:
+## Registry metadata (props, examples, category):
+!`find /Users/varun/Dev/masicn-ui/registry/components/$ARGUMENTS /Users/varun/Dev/masicn-ui/registry/blocks/$ARGUMENTS -type f 2>/dev/null`
 
-1. Shows **every variant** the component supports (size, variant, state props)
-2. Shows a **realistic composition** — how this component looks in a real app screen
-3. Uses `ShowcaseSection` wrapper if that pattern exists in this project
-4. Uses tokens from `@masicn/ui` for any custom spacing or colors
-5. Labels each section clearly so it's useful for docs screenshots
+If the component/block isn't installed yet, run `npx masicn add $ARGUMENTS` first.
 
-After creating the file, add it to the navigation if this project has a navigator.
+Create the screen at `src/app/screens/components/<Name>Screen.tsx` — components, blocks, and layouts all share this one directory (there is no separate `screens/blocks/` or `screens/layouts/` split for new items; the existing `screens/layouts/` directory only holds the three legacy layout screens ported from Playground). The screen should:
+
+1. Show **every variant** the component supports (size, variant, state props) using `VariantRow` from `src/app/shared/VariantRow`
+2. Show a **realistic composition** — how this component looks in a real app screen, not just isolated variant rows
+3. Use `ShowcaseSection` (`src/app/shared/ShowcaseSection`) to structure each section, and `ScreenLayout` (`src/app/shared/ScreenLayout`) as the screen wrapper
+4. Import the component directly from its flat file, e.g. `import { Button } from '../../../shared/components/Button'` or `import { CodeInput } from '../../../shared/blocks/CodeInput'` — never via the `shared/components` or `shared/blocks` barrel
+5. Use tokens/theme from `../../masicn` for any custom spacing or colors — never magic numbers or raw hex
+
+After creating the file, register it in two places:
+- `src/app/navigation/AppNavigator.tsx` — add the import and a `<PascalName>: <PascalName>Screen` entry to `SCREEN_MAP`
+- `src/app/screens/HomeScreen.tsx` — add `'<PascalName>'` to the matching category section's `data` array in `ALL_SECTIONS` (Display, Feedback, Actions, Forms, Navigation, Overlays, Blocks, or Layouts)
