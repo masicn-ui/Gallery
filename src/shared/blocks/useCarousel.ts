@@ -101,25 +101,45 @@ export function useCarousel({
   // ── Shared values ──────────────────────────────────────────────────────
 
   // useSharedValue uses its argument only on first mount; subsequent renders
-  // update the value via direct assignment below.
+  // sync the value via the useEffect below.
   const offset = useSharedValue(initialOffset);
   const savedOffset = useSharedValue(initialOffset);
 
-  // Direct assignment runs synchronously each render, keeping worklet
-  // reads always current without recreating the gesture.
+  // Synced in useEffect (not directly during render — Reanimated disallows
+  // writing to `.value` while React is rendering) so worklet reads stay
+  // current without recreating the gesture, which keeps a stable `[]` dep array.
   const scrollStepSV = useSharedValue(scrollStep);
   const maxOffsetSV = useSharedValue(maxOffset);
   const dataLengthSV = useSharedValue(dataLength);
   const clonedLengthSV = useSharedValue(clonedLength);
   const hPaddingSV = useSharedValue(horizontalPadding);
   const loopSV = useSharedValue(effectiveLoop ? 1 : 0);
+  const reducedMotionSV = useSharedValue(reducedMotion ? 1 : 0);
 
-  scrollStepSV.value = scrollStep;
-  maxOffsetSV.value = maxOffset;
-  dataLengthSV.value = dataLength;
-  clonedLengthSV.value = clonedLength;
-  hPaddingSV.value = horizontalPadding;
-  loopSV.value = effectiveLoop ? 1 : 0;
+  useEffect(() => {
+    scrollStepSV.value = scrollStep;
+    maxOffsetSV.value = maxOffset;
+    dataLengthSV.value = dataLength;
+    clonedLengthSV.value = clonedLength;
+    hPaddingSV.value = horizontalPadding;
+    loopSV.value = effectiveLoop ? 1 : 0;
+    reducedMotionSV.value = reducedMotion ? 1 : 0;
+  }, [
+    scrollStep,
+    maxOffset,
+    dataLength,
+    clonedLength,
+    horizontalPadding,
+    effectiveLoop,
+    reducedMotion,
+    scrollStepSV,
+    maxOffsetSV,
+    dataLengthSV,
+    clonedLengthSV,
+    hPaddingSV,
+    loopSV,
+    reducedMotionSV,
+  ]);
 
   // ── Pan gesture ────────────────────────────────────────────────────────
 
@@ -164,23 +184,35 @@ export function useCarousel({
             realIdx = clamped;
           }
 
-          // Snap to position; on completion, jump off clones to real equivalent
-          offset.value = withSpring(
-            clamped * scrollStepSV.value,
-            SNAP_SPRING,
-            finished => {
-              'worklet';
-              if (finished && loopSV.value) {
-                if (clamped === 0) {
-                  // Was clone of last → jump to real last position
-                  offset.value = dataLengthSV.value * scrollStepSV.value;
-                } else if (clamped === clonedLengthSV.value - 1) {
-                  // Was clone of first → jump to real first position
-                  offset.value = scrollStepSV.value;
+          // Snap to position; on completion, jump off clones to real equivalent.
+          // Reduced motion: skip the spring entirely and land on the final
+          // (post-wrap) offset immediately, same end state as the animated path.
+          if (reducedMotionSV.value) {
+            if (loopSV.value && clamped === 0) {
+              offset.value = dataLengthSV.value * scrollStepSV.value;
+            } else if (loopSV.value && clamped === clonedLengthSV.value - 1) {
+              offset.value = scrollStepSV.value;
+            } else {
+              offset.value = clamped * scrollStepSV.value;
+            }
+          } else {
+            offset.value = withSpring(
+              clamped * scrollStepSV.value,
+              SNAP_SPRING,
+              finished => {
+                'worklet';
+                if (finished && loopSV.value) {
+                  if (clamped === 0) {
+                    // Was clone of last → jump to real last position
+                    offset.value = dataLengthSV.value * scrollStepSV.value;
+                  } else if (clamped === clonedLengthSV.value - 1) {
+                    // Was clone of first → jump to real first position
+                    offset.value = scrollStepSV.value;
+                  }
                 }
-              }
-            },
-          );
+              },
+            );
+          }
           scheduleOnRN(setActiveIndex, realIdx);
         }),
     // All referenced values are stable shared value refs updated in-place above.
