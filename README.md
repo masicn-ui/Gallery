@@ -1,97 +1,94 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# masicn/ui Gallery
 
-# Getting Started
+The public showcase app for [masicn/ui](https://github.com/masicn-ui) — the copy-paste React Native UI ecosystem.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+Gallery demonstrates all 73 registry items (54 components + 19 blocks/layouts) in realistic, composed contexts — not isolated demos. Screenshots and recordings captured here are intended for the [docs site](../docs/) and the org's marketing surfaces. Gallery is **never published** — it's an internal development/showcase tool, not an npm package.
 
-## Step 1: Start Metro
+**Built from scratch by [Manish Kumar](https://manishh.in) ([@lordofthemind](https://github.com/lordofthemind))**
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Role in the Monorepo
 
-To start the Metro dev server, run the following command from the root of your React Native project:
-
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+```
+Playground  →  builds components, tests edge cases (source of truth for component code)
+Gallery     →  showcases components in real compositions, feeds docs visuals
 ```
 
-## Step 2: Build and run your app
+Gallery does **not** author components on its own — nearly every component/block source file here
+was installed via the `masicn` CLI (`npx masicn add <name>`) from the [registry](../registry/), the
+same way an end user would — Gallery deliberately dogfoods the real install path rather than
+symlinking Playground's source directly.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+**Exception:** under the [contributing model](https://masicn.manishh.in/docs/contributing),
+external contributors proposing a brand-new component may build it directly inside
+`src/shared/components/<name>/` here, following Playground's authoring conventions (tokens,
+accessibility, tests, a demo screen), as both the reference implementation and its own showcase.
+Until such a PR is merged into `registry/`, that one component is a deliberate, clearly-scoped
+exception to "everything here came from a real install" — it's a new addition under review, not
+yet an installed package.
 
-### Android
+## Consuming the Design System
 
-```sh
-# Using npm
-npm run android
+Gallery's `masicn.json` sets `localDesignSystem: true` — the design system (`@masicn/ui`) is a **local copy** at `src/masicn/`, written by `npx masicn init`, not an npm dependency or a workspace symlink. `src/shared/components/` and `src/shared/blocks/` are similarly local copies written by `masicn add`, one flat file per item (no per-item subdirectory — that nested-folder convention is a Playground-only authoring pattern, not how the CLI installs into a real project).
 
-# OR using Yarn
-yarn android
+## Getting Started
+
+> **Node.js requirement**: `>= 22.11.0` (see `engines` in `package.json`)
+
+```bash
+npm start              # Start Metro dev server
+npm run android        # Build & run on Android
+npm run ios            # Build & run on iOS (run `pod install` in ios/ first)
+npm run lint           # ESLint
+npm test               # Jest
 ```
 
-### iOS
+## Project Structure
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```
+Gallery/
+├── App.tsx                          # Root: providers + NavigationContainer + AppNavigator
+├── src/
+│   ├── masicn/                      # Local copy of @masicn/ui (written by `masicn init`)
+│   ├── shared/
+│   │   ├── components/               # Flat component files, installed via `masicn add`
+│   │   └── blocks/                   # Flat block/layout files, installed via `masicn add`
+│   └── app/
+│       ├── navigation/
+│       │   ├── types.ts              # RootStackParamList
+│       │   └── AppNavigator.tsx      # SCREEN_MAP + Stack.Navigator
+│       ├── screens/
+│       │   ├── HomeScreen.tsx        # Sectioned list of all 73 items
+│       │   ├── ComingSoonScreen.tsx  # Fallback for any unregistered screen name
+│       │   ├── components/           # One showcase screen per component/block
+│       │   └── layouts/              # Showcase screens for the 3 layout-category blocks
+│       └── shared/                   # ScreenLayout, ShowcaseSection, VariantRow, ComponentListItem
 ```
 
-Then, and every time you update your native dependencies, run:
+## Adding a New Showcase Screen
 
-```sh
-bundle exec pod install
-```
+Use `/add-showcase <name>` (see `.claude/commands/add-showcase.md`), or manually:
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+1. `npx masicn add <name>` if not already installed
+2. Create `src/app/screens/components/<Name>Screen.tsx` using `ScreenLayout` + `ShowcaseSection` + `VariantRow`
+3. Register it in `src/app/navigation/AppNavigator.tsx` (`SCREEN_MAP`) and `src/app/screens/HomeScreen.tsx` (`ALL_SECTIONS`)
 
-```sh
-# Using npm
-npm run ios
+## Related Repos
 
-# OR using Yarn
-yarn ios
-```
+| Repo | Package | Description |
+|------|---------|-------------|
+| [masicn-ui/masicn](https://github.com/masicn-ui/masicn) (public) | `@masicn/ui` | Core design system library |
+| [masicn-ui/registry](https://github.com/masicn-ui/registry) (public) | `@masicn/registry` | Component registry / source of truth |
+| [npmjs.com/package/masicn](https://www.npmjs.com/package/masicn) (private source, public npm package) | `masicn` (npm bin) | CLI tool — 17 commands |
+| masicn-ui/Playground (private) | `com.masicn.playground` | Reference/testing app — where components are authored |
+| [masicn-ui/docs](https://github.com/masicn-ui/docs) (public) | — | Documentation site |
+| `../manishhXyz/` | `ink.manishh.xyz` | Example consumer app |
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## Contributing
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+See [masicn.manishh.in/docs/contributing](https://masicn.manishh.in/docs/contributing) for the full
+model — bug fixes and showcase improvements PR directly against this repo; brand-new components go
+through an issue on [registry](https://github.com/masicn-ui/registry) first.
 
-## Step 3: Modify your app
+## License
 
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+[MIT](./LICENSE) — free to use, modify, and distribute. Copyright © 2026 [Manish Kumar](https://manishh.in).

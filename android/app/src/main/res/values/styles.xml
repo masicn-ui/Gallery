@@ -1,9 +1,27 @@
 <resources>
-
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="android:editTextBackground">@drawable/rn_edit_text_material</item>
+        <!-- Must match bootsplash_background to prevent a flash at the BootTheme -> AppTheme handoff -->
+        <item name="android:windowBackground">@color/bootsplash_background</item>
     </style>
 
+    <style name="BootTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Splash drawable (background + logo) shows immediately -->
+        <item name="android:windowBackground">@drawable/bootsplash</item>
+
+        <!-- Disable preview window to prevent launcher icon flash -->
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
+        <!-- RNBootSplash configuration -->
+        <item name="bootSplashBackground">@color/bootsplash_background</item>
+        <item name="bootSplashLogo">@drawable/bootsplash_logo</item>
+        <item name="postBootSplashTheme">@style/AppTheme</item>
+    </style>
 </resources>

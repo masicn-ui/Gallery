@@ -1,45 +1,39 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React, { useCallback, useState } from 'react';
+import { StyleSheet } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationContainer } from '@react-navigation/native';
+import RNBootSplash from 'react-native-bootsplash';
+import { MasicnProvider } from './src/masicn';
+import { ToastProvider, SnackbarProvider } from './src/shared/components';
+import { AppNavigator } from './src/app/navigation/AppNavigator';
+import { BootSplashOverlay } from './src/app/bootsplash/BootSplashOverlay';
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+export default function App() {
+  const [splashVisible, setSplashVisible] = useState(true);
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
-  );
-}
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
+  const handleNavigationReady = useCallback(() => {
+    RNBootSplash.hide({ fade: false }).then(() => setSplashVisible(false));
+  }, []);
 
   return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
+    <GestureHandlerRootView style={styles.root}>
+      <SafeAreaProvider>
+        <MasicnProvider theme="system">
+          <ToastProvider>
+            <SnackbarProvider>
+              <NavigationContainer onReady={handleNavigationReady}>
+                <AppNavigator />
+              </NavigationContainer>
+            </SnackbarProvider>
+          </ToastProvider>
+        </MasicnProvider>
+      </SafeAreaProvider>
+      <BootSplashOverlay visible={splashVisible} />
+    </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  root: { flex: 1 },
 });
-
-export default App;

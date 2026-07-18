@@ -1,0 +1,427 @@
+.
+├── App.tsx
+├── CLAUDE.md
+├── Gemfile
+├── Gemfile.lock
+├── LICENSE
+├── README.md
+├── __mocks__/
+│   └── react-native-bootsplash.js
+├── __tests__/
+│   ├── App.test.tsx
+│   ├── screens/
+│   │   └── AppNavigator.test.tsx
+│   └── setup/
+│       ├── jestSetup.ts
+│       └── renderWithTheme.tsx
+├── android/
+│   ├── app/
+│   │   ├── build.gradle
+│   │   ├── debug.keystore
+│   │   ├── proguard-rules.pro
+│   │   └── src/
+│   │       └── main/
+│   │           ├── AndroidManifest.xml
+│   │           ├── assets/
+│   │           │   └── fonts/
+│   │           │       ├── DMSans-Bold.ttf
+│   │           │       ├── DMSans-Medium.ttf
+│   │           │       ├── DMSans-Regular.ttf
+│   │           │       ├── Inter-Bold.ttf
+│   │           │       ├── Inter-Medium.ttf
+│   │           │       ├── Inter-Regular.ttf
+│   │           │       ├── Manrope-Bold.ttf
+│   │           │       ├── Manrope-Medium.ttf
+│   │           │       ├── Manrope-Regular.ttf
+│   │           │       ├── Outfit-Bold.ttf
+│   │           │       ├── Outfit-Medium.ttf
+│   │           │       ├── Outfit-Regular.ttf
+│   │           │       ├── Poppins-Bold.ttf
+│   │           │       ├── Poppins-Medium.ttf
+│   │           │       └── Poppins-Regular.ttf
+│   │           ├── java/
+│   │           │   └── com/
+│   │           │       └── masicn/
+│   │           │           └── gallery/
+│   │           │               ├── MainActivity.kt
+│   │           │               └── MainApplication.kt
+│   │           └── res/
+│   │               ├── drawable/
+│   │               │   ├── bootsplash.xml
+│   │               │   └── rn_edit_text_material.xml
+│   │               ├── drawable-hdpi/
+│   │               │   └── bootsplash_logo.png
+│   │               ├── drawable-mdpi/
+│   │               │   └── bootsplash_logo.png
+│   │               ├── drawable-xhdpi/
+│   │               │   └── bootsplash_logo.png
+│   │               ├── drawable-xxhdpi/
+│   │               │   └── bootsplash_logo.png
+│   │               ├── drawable-xxxhdpi/
+│   │               │   └── bootsplash_logo.png
+│   │               ├── mipmap-hdpi/
+│   │               │   ├── ic_launcher.png
+│   │               │   └── ic_launcher_round.png
+│   │               ├── mipmap-mdpi/
+│   │               │   ├── ic_launcher.png
+│   │               │   └── ic_launcher_round.png
+│   │               ├── mipmap-xhdpi/
+│   │               │   ├── ic_launcher.png
+│   │               │   └── ic_launcher_round.png
+│   │               ├── mipmap-xxhdpi/
+│   │               │   ├── ic_launcher.png
+│   │               │   └── ic_launcher_round.png
+│   │               ├── mipmap-xxxhdpi/
+│   │               │   ├── ic_launcher.png
+│   │               │   └── ic_launcher_round.png
+│   │               ├── values/
+│   │               │   ├── colors.xml
+│   │               │   ├── strings.xml
+│   │               │   └── styles.xml
+│   │               ├── values-night/
+│   │               │   └── colors.xml
+│   │               └── values-v31/
+│   │                   └── styles.xml
+│   ├── build.gradle
+│   ├── gradle/
+│   │   └── wrapper/
+│   │       ├── gradle-wrapper.jar
+│   │       └── gradle-wrapper.properties
+│   ├── gradle.properties
+│   ├── gradlew
+│   ├── gradlew.bat
+│   ├── link-assets-manifest.json
+│   └── settings.gradle
+├── app.json
+├── assets/
+│   ├── bootsplash/
+│   │   ├── logo.png
+│   │   ├── logo@1,5x.png
+│   │   ├── logo@2x.png
+│   │   ├── logo@3x.png
+│   │   ├── logo@4x.png
+│   │   └── manifest.json
+│   ├── fonts/
+│   │   ├── DMSans-Bold.ttf
+│   │   ├── DMSans-Medium.ttf
+│   │   ├── DMSans-Regular.ttf
+│   │   ├── Inter-Bold.ttf
+│   │   ├── Inter-Medium.ttf
+│   │   ├── Inter-Regular.ttf
+│   │   ├── Manrope-Bold.ttf
+│   │   ├── Manrope-Medium.ttf
+│   │   ├── Manrope-Regular.ttf
+│   │   ├── Outfit-Bold.ttf
+│   │   ├── Outfit-Medium.ttf
+│   │   ├── Outfit-Regular.ttf
+│   │   ├── Poppins-Bold.ttf
+│   │   ├── Poppins-Medium.ttf
+│   │   └── Poppins-Regular.ttf
+│   └── svg/
+├── babel.config.js
+├── index.js
+├── ios/
+│   ├── Gallery/
+│   │   ├── AppDelegate.swift
+│   │   ├── BootSplash.storyboard
+│   │   ├── Colors.xcassets/
+│   │   │   └── BootSplashBackground-56f5be.colorset/
+│   │   │       └── Contents.json
+│   │   ├── Images.xcassets/
+│   │   │   ├── AppIcon.appiconset/
+│   │   │   │   └── Contents.json
+│   │   │   ├── BootSplashLogo-56f5be.imageset/
+│   │   │   │   ├── Contents.json
+│   │   │   │   ├── logo-56f5be.png
+│   │   │   │   ├── logo-56f5be@2x.png
+│   │   │   │   └── logo-56f5be@3x.png
+│   │   │   └── Contents.json
+│   │   ├── Info.plist
+│   │   ├── LaunchScreen.storyboard
+│   │   └── PrivacyInfo.xcprivacy
+│   ├── Gallery.xcodeproj/
+│   │   ├── project.pbxproj
+│   │   ├── project.xcworkspace/
+│   │   │   └── xcshareddata/
+│   │   │       └── swiftpm/
+│   │   │           └── configuration/
+│   │   └── xcshareddata/
+│   │       └── xcschemes/
+│   │           └── Gallery.xcscheme
+│   ├── Gallery.xcworkspace/
+│   │   ├── contents.xcworkspacedata
+│   │   └── xcshareddata/
+│   │       └── swiftpm/
+│   │           └── configuration/
+│   ├── Podfile
+│   ├── Podfile.lock
+│   └── link-assets-manifest.json
+├── jest.config.js
+├── masicn.json
+├── metro.config.js
+├── package-lock.json
+├── package.json
+├── react-native.config.js
+├── src/
+│   ├── app/
+│   │   ├── bootsplash/
+│   │   │   ├── BootSplashOverlay.tsx
+│   │   │   └── constants.ts
+│   │   ├── navigation/
+│   │   │   ├── AppNavigator.tsx
+│   │   │   └── types.ts
+│   │   ├── screens/
+│   │   │   ├── ComingSoonScreen.tsx
+│   │   │   ├── HomeScreen.tsx
+│   │   │   ├── components/
+│   │   │   │   ├── AccordionScreen.tsx
+│   │   │   │   ├── ActionSheetScreen.tsx
+│   │   │   │   ├── AlertScreen.tsx
+│   │   │   │   ├── AvatarGroupScreen.tsx
+│   │   │   │   ├── AvatarScreen.tsx
+│   │   │   │   ├── BadgeScreen.tsx
+│   │   │   │   ├── BottomSheetScreen.tsx
+│   │   │   │   ├── BreadcrumbScreen.tsx
+│   │   │   │   ├── ButtonScreen.tsx
+│   │   │   │   ├── CardScreen.tsx
+│   │   │   │   ├── CarouselScreen.tsx
+│   │   │   │   ├── CheckboxGroupScreen.tsx
+│   │   │   │   ├── CheckboxScreen.tsx
+│   │   │   │   ├── ChipInputScreen.tsx
+│   │   │   │   ├── ChipScreen.tsx
+│   │   │   │   ├── CodeInputScreen.tsx
+│   │   │   │   ├── CollapsibleScreen.tsx
+│   │   │   │   ├── ConfirmScreen.tsx
+│   │   │   │   ├── ContextMenuScreen.tsx
+│   │   │   │   ├── DetailRowScreen.tsx
+│   │   │   │   ├── DockScreen.tsx
+│   │   │   │   ├── DotScreen.tsx
+│   │   │   │   ├── DrawerScreen.tsx
+│   │   │   │   ├── DualSheetScreen.tsx
+│   │   │   │   ├── EmptyStateScreen.tsx
+│   │   │   │   ├── ExpandableScreen.tsx
+│   │   │   │   ├── FABScreen.tsx
+│   │   │   │   ├── FormScreen.tsx
+│   │   │   │   ├── ImageScreen.tsx
+│   │   │   │   ├── JsonTreeScreen.tsx
+│   │   │   │   ├── LeftSheetScreen.tsx
+│   │   │   │   ├── LinkScreen.tsx
+│   │   │   │   ├── ListItemScreen.tsx
+│   │   │   │   ├── LoaderScreen.tsx
+│   │   │   │   ├── MenuScreen.tsx
+│   │   │   │   ├── ModalScreen.tsx
+│   │   │   │   ├── NumericScreen.tsx
+│   │   │   │   ├── PaginationScreen.tsx
+│   │   │   │   ├── PhoneScreen.tsx
+│   │   │   │   ├── PinScreen.tsx
+│   │   │   │   ├── PopoverScreen.tsx
+│   │   │   │   ├── ProgressRingScreen.tsx
+│   │   │   │   ├── ProgressScreen.tsx
+│   │   │   │   ├── RadioScreen.tsx
+│   │   │   │   ├── RangeSliderScreen.tsx
+│   │   │   │   ├── RatingScreen.tsx
+│   │   │   │   ├── RightSheetScreen.tsx
+│   │   │   │   ├── SearchBarScreen.tsx
+│   │   │   │   ├── SecureInputScreen.tsx
+│   │   │   │   ├── SegmentScreen.tsx
+│   │   │   │   ├── SelectScreen.tsx
+│   │   │   │   ├── ShimmerScreen.tsx
+│   │   │   │   ├── SkeletonScreen.tsx
+│   │   │   │   ├── SliderScreen.tsx
+│   │   │   │   ├── SnackbarScreen.tsx
+│   │   │   │   ├── SpinnerScreen.tsx
+│   │   │   │   ├── StepperScreen.tsx
+│   │   │   │   ├── SwipeButtonScreen.tsx
+│   │   │   │   ├── SwipeableScreen.tsx
+│   │   │   │   ├── SwitchScreen.tsx
+│   │   │   │   ├── TabsScreen.tsx
+│   │   │   │   ├── TagScreen.tsx
+│   │   │   │   ├── TextInputScreen.tsx
+│   │   │   │   ├── TextareaScreen.tsx
+│   │   │   │   ├── TickerScreen.tsx
+│   │   │   │   ├── TimelineScreen.tsx
+│   │   │   │   ├── ToastScreen.tsx
+│   │   │   │   ├── ToggleGroupScreen.tsx
+│   │   │   │   ├── TooltipScreen.tsx
+│   │   │   │   └── TopSheetScreen.tsx
+│   │   │   └── layouts/
+│   │   │       ├── MasonryGridScreen.tsx
+│   │   │       ├── RefreshableListScreen.tsx
+│   │   │       └── RefreshableScrollViewScreen.tsx
+│   │   └── shared/
+│   │       ├── ComponentListItem.tsx
+│   │       ├── ScreenLayout.tsx
+│   │       ├── ShowcaseSection.tsx
+│   │       └── VariantRow.tsx
+│   ├── brand/
+│   │   └── logo/
+│   │       ├── MasicnLogo.tsx
+│   │       ├── index.ts
+│   │       └── masicn.logo.svg
+│   ├── masicn/
+│   │   ├── WelcomeScreen.tsx
+│   │   ├── hooks/
+│   │   │   ├── index.ts
+│   │   │   ├── useAccessibilityProps.ts
+│   │   │   ├── useFocusTrap.ts
+│   │   │   ├── useGradients.ts
+│   │   │   ├── useReducedMotion.ts
+│   │   │   └── useResponsive.ts
+│   │   ├── icons/
+│   │   │   ├── ArrowLeftIcon.tsx
+│   │   │   ├── CheckIcon.tsx
+│   │   │   ├── ChevronDownIcon.tsx
+│   │   │   ├── ChevronRightIcon.tsx
+│   │   │   ├── ChevronUpIcon.tsx
+│   │   │   ├── EyeIcon.tsx
+│   │   │   ├── EyeOffIcon.tsx
+│   │   │   ├── InboxIcon.tsx
+│   │   │   ├── InfoIcon.tsx
+│   │   │   ├── MinusIcon.tsx
+│   │   │   ├── MoonIcon.tsx
+│   │   │   ├── PaintBoardIcon.tsx
+│   │   │   ├── PaletteIcon.tsx
+│   │   │   ├── PlusIcon.tsx
+│   │   │   ├── SearchIcon.tsx
+│   │   │   ├── SettingsIcon.tsx
+│   │   │   ├── StarIcon.tsx
+│   │   │   ├── SunIcon.tsx
+│   │   │   ├── WarningIcon.tsx
+│   │   │   ├── XIcon.tsx
+│   │   │   └── index.ts
+│   │   ├── index.ts
+│   │   ├── primitives/
+│   │   │   ├── AspectRatio.tsx
+│   │   │   ├── Box.tsx
+│   │   │   ├── Center.tsx
+│   │   │   ├── Circle.tsx
+│   │   │   ├── Divider.tsx
+│   │   │   ├── Icon.tsx
+│   │   │   ├── Pressable.tsx
+│   │   │   ├── Row.tsx
+│   │   │   ├── SafeAreaScreen.tsx
+│   │   │   ├── Screen.tsx
+│   │   │   ├── Spacer.tsx
+│   │   │   ├── Square.tsx
+│   │   │   ├── Stack.tsx
+│   │   │   ├── Surface.tsx
+│   │   │   ├── Text.tsx
+│   │   │   ├── Wrap.tsx
+│   │   │   └── index.ts
+│   │   ├── system/
+│   │   │   ├── Masicn.tsx
+│   │   │   ├── MasicnProvider.tsx
+│   │   │   ├── PortalHost.tsx
+│   │   │   ├── ThemeToggle.tsx
+│   │   │   └── index.ts
+│   │   ├── theme/
+│   │   │   ├── ThemeContext.tsx
+│   │   │   ├── ThemeProvider.tsx
+│   │   │   ├── colors.ts
+│   │   │   ├── createTheme.ts
+│   │   │   ├── dark.ts
+│   │   │   ├── index.ts
+│   │   │   ├── light.ts
+│   │   │   ├── theme.ts
+│   │   │   └── version.ts
+│   │   ├── tokens/
+│   │   │   ├── borders.ts
+│   │   │   ├── elevation.ts
+│   │   │   ├── gradients.ts
+│   │   │   ├── iconSizes.ts
+│   │   │   ├── index.ts
+│   │   │   ├── layout.ts
+│   │   │   ├── lineHeight.ts
+│   │   │   ├── motion.ts
+│   │   │   ├── motionEasing.ts
+│   │   │   ├── opacity.ts
+│   │   │   ├── radius.ts
+│   │   │   ├── sizes.ts
+│   │   │   ├── spacing.ts
+│   │   │   └── typography.ts
+│   │   └── utils/
+│   │       ├── color.ts
+│   │       └── index.ts
+│   └── shared/
+│       ├── blocks/
+│       │   ├── ActionSheet.tsx
+│       │   ├── Breadcrumb.tsx
+│       │   ├── Carousel.tsx
+│       │   ├── CarouselDots.tsx
+│       │   ├── CarouselSlide.tsx
+│       │   ├── ChipInput.tsx
+│       │   ├── CodeInput.tsx
+│       │   ├── Confirm.tsx
+│       │   ├── DualSheet.tsx
+│       │   ├── EmptyState.tsx
+│       │   ├── Form.tsx
+│       │   ├── JsonTree.tsx
+│       │   ├── MasonryGrid.tsx
+│       │   ├── Numeric.tsx
+│       │   ├── Pagination.tsx
+│       │   ├── Phone.tsx
+│       │   ├── RefreshableList.tsx
+│       │   ├── RefreshableScrollView.tsx
+│       │   ├── Stepper.tsx
+│       │   ├── Swipeable.tsx
+│       │   ├── Timeline.tsx
+│       │   └── useCarousel.ts
+│       └── components/
+│           ├── Accordion.tsx
+│           ├── Alert.tsx
+│           ├── Avatar.tsx
+│           ├── AvatarGroup.tsx
+│           ├── Badge.tsx
+│           ├── BottomSheet.tsx
+│           ├── Button.tsx
+│           ├── Card.tsx
+│           ├── Checkbox.tsx
+│           ├── CheckboxGroup.tsx
+│           ├── Chip.tsx
+│           ├── Collapsible.tsx
+│           ├── ContextMenu.tsx
+│           ├── DetailRow.tsx
+│           ├── Dock.tsx
+│           ├── Dot.tsx
+│           ├── Drawer.tsx
+│           ├── Expandable.tsx
+│           ├── FAB.tsx
+│           ├── Image.tsx
+│           ├── LeftSheet.tsx
+│           ├── Link.tsx
+│           ├── ListItem.tsx
+│           ├── Loader.tsx
+│           ├── Menu.tsx
+│           ├── Modal.tsx
+│           ├── Pin.tsx
+│           ├── Popover.tsx
+│           ├── Progress.tsx
+│           ├── ProgressRing.tsx
+│           ├── Radio.tsx
+│           ├── RangeSlider.tsx
+│           ├── Rating.tsx
+│           ├── RightSheet.tsx
+│           ├── SearchBar.tsx
+│           ├── SecureInput.tsx
+│           ├── Segment.tsx
+│           ├── Select.tsx
+│           ├── Shimmer.tsx
+│           ├── Skeleton.tsx
+│           ├── Slider.tsx
+│           ├── Snackbar.tsx
+│           ├── Spinner.tsx
+│           ├── SwipeButton.tsx
+│           ├── Switch.tsx
+│           ├── Tabs.tsx
+│           ├── Tag.tsx
+│           ├── TextInput.tsx
+│           ├── Textarea.tsx
+│           ├── Ticker.tsx
+│           ├── Toast.tsx
+│           ├── ToggleGroup.tsx
+│           ├── Tooltip.tsx
+│           ├── TopSheet.tsx
+│           └── index.ts
+└── tsconfig.json
+
+74 directories, 350 files
