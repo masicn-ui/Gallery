@@ -2,9 +2,11 @@
 
 The public showcase app for [masicn/ui](https://github.com/masicn-ui) — the copy-paste React Native UI ecosystem.
 
-Gallery demonstrates all 73 registry items (54 components + 19 blocks/layouts) in realistic, composed contexts — not isolated demos. Screenshots and recordings captured here are intended for the [docs site](../docs/) and the org's marketing surfaces. Gallery is **never published** — it's an internal development/showcase tool, not an npm package.
+Gallery demonstrates all 73 registry items (54 components + 19 blocks/layouts) in realistic, composed contexts — not isolated demos. Screenshots and recordings captured here are intended for the [docs site](https://masicn.manishh.in) ([`../docs/`](../docs/)) and the org's marketing surfaces. Gallery is **never published** — it's an internal development/showcase tool, not an npm package.
 
 **Built from scratch by [Manish Kumar](https://manishh.in) ([@lordofthemind](https://github.com/lordofthemind))**
+
+> **मसि** (masi) means _ink_ in Sanskrit and several Indian languages. Just as ink is the medium for writing anything, masicn/ui is the medium for building anything in React Native.
 
 ## Role in the Monorepo
 
@@ -18,6 +20,14 @@ was installed via the `masicn` CLI (`npx masicn add <name>`) from the [registry]
 same way an end user would — Gallery deliberately dogfoods the real install path rather than
 symlinking Playground's source directly.
 
+**What goes here:** showcase screens (one per registry component/block, all variants in a realistic
+composition), example UIs (full-screen flows composed from multiple components, e.g. a "verify your
+phone number" screen built from `Phone` + `CodeInput` + `Button`), and composition examples (card
+lists, form layouts, navigation patterns using several components together).
+
+**What does *not* go here:** new component authoring (that's `Playground/src/shared/`), design
+system primitives (those live in `masicn/src/`), and registry templates (those live in `registry/`).
+
 **Exception:** under the [contributing model](https://masicn.manishh.in/docs/contributing),
 external contributors proposing a brand-new component may build it directly inside
 `src/shared/components/<name>/` here, following Playground's authoring conventions (tokens,
@@ -29,6 +39,22 @@ yet an installed package.
 ## Consuming the Design System
 
 Gallery's `masicn.json` sets `localDesignSystem: true` — the design system (`@masicn/ui`) is a **local copy** at `src/masicn/`, written by `npx masicn init`, not an npm dependency or a workspace symlink. `src/shared/components/` and `src/shared/blocks/` are similarly local copies written by `masicn add`, one flat file per item (no per-item subdirectory — that nested-folder convention is a Playground-only authoring pattern, not how the CLI installs into a real project).
+
+## See It Live
+
+The docs site shows every component as a static page. This repo is how you see them actually
+running — real gestures, real animations, real dark-mode switching, on a real device or simulator.
+Clone it, install, and run:
+
+```bash
+git clone https://github.com/masicn-ui/Gallery.git
+cd Gallery && npm install
+npm start          # Metro dev server
+npm run ios        # or: npm run android
+```
+
+`HomeScreen` gives you a sectioned list of all 73 components and blocks — tap any one to see its
+showcase screen with every variant.
 
 ## Getting Started
 
@@ -63,6 +89,24 @@ Gallery/
 │       │   └── layouts/              # Showcase screens for the 3 layout-category blocks
 │       └── shared/                   # ScreenLayout, ShowcaseSection, VariantRow, ComponentListItem
 ```
+
+Full architecture notes — including what's explicitly out of scope for this repo — live in
+[`CLAUDE.md`](./CLAUDE.md).
+
+## Tech Stack
+
+React Native 0.84.1 · React 19.2.3 · React Navigation 7 (`@react-navigation/native` +
+`native-stack`) · Reanimated 4.3.0 · `react-native-gesture-handler` · TypeScript — same major
+versions as the rest of the ecosystem.
+
+## Testing
+
+`npm test` runs Jest against `__tests__/` — app-level smoke tests (`App.test.tsx`,
+`screens/AppNavigator.test.tsx`), not per-component tests, since components aren't authored here.
+Tests render through the same `renderWithTheme` helper pattern used across the ecosystem
+(`__tests__/setup/renderWithTheme.tsx`), backed by `@testing-library/react-native` and
+`jest-native`. Per-component behavior is tested where the component is actually authored — see
+`registry`'s or Playground's own test suites for that.
 
 ## Adding a New Showcase Screen
 
