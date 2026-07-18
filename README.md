@@ -1,6 +1,6 @@
-# masicn Gallery
+# masicn/ui Gallery
 
-The public showcase app for [masicn](https://github.com/masicn-ui) — the copy-paste React Native UI ecosystem.
+The public showcase app for [masicn/ui](https://github.com/masicn-ui) — the copy-paste React Native UI ecosystem.
 
 Gallery demonstrates all 73 registry items (54 components + 19 blocks/layouts) in realistic, composed contexts — not isolated demos. Screenshots and recordings captured here are intended for the [docs site](../docs/) and the org's marketing surfaces. Gallery is **never published** — it's an internal development/showcase tool, not an npm package.
 
@@ -13,7 +13,18 @@ Playground  →  builds components, tests edge cases (source of truth for compon
 Gallery     →  showcases components in real compositions, feeds docs visuals
 ```
 
-Gallery does **not** author components. Every component/block source file here was installed via the `masicn` CLI (`npx masicn add <name>`) from the [registry](../registry/), the same way an end user would — Gallery deliberately dogfoods the real install path rather than symlinking Playground's source directly.
+Gallery does **not** author components on its own — nearly every component/block source file here
+was installed via the `masicn` CLI (`npx masicn add <name>`) from the [registry](../registry/), the
+same way an end user would — Gallery deliberately dogfoods the real install path rather than
+symlinking Playground's source directly.
+
+**Exception:** under the [contributing model](https://masicn.manishh.in/docs/contributing),
+external contributors proposing a brand-new component may build it directly inside
+`src/shared/components/<name>/` here, following Playground's authoring conventions (tokens,
+accessibility, tests, a demo screen), as both the reference implementation and its own showcase.
+Until such a PR is merged into `registry/`, that one component is a deliberate, clearly-scoped
+exception to "everything here came from a real install" — it's a new addition under review, not
+yet an installed package.
 
 ## Consuming the Design System
 
@@ -65,12 +76,18 @@ Use `/add-showcase <name>` (see `.claude/commands/add-showcase.md`), or manually
 
 | Repo | Package | Description |
 |------|---------|-------------|
-| [masicn-ui/masicn](https://github.com/masicn-ui/masicn) | `@masicn/ui` | Core design system library |
-| [masicn-ui/registry](https://github.com/masicn-ui/registry) | `@masicn/registry` | Component registry / source of truth |
-| [masicn-ui/cli](https://github.com/masicn-ui/cli) | `masicn` (npm bin) | CLI tool — 17 commands |
-| [masicn-ui/Playground](https://github.com/masicn-ui/Playground) | `com.masicn.playground` | Reference/testing app — where components are authored |
-| [masicn-ui/docs](https://github.com/masicn-ui/docs) | — | Documentation site |
+| [masicn-ui/masicn](https://github.com/masicn-ui/masicn) (public) | `@masicn/ui` | Core design system library |
+| [masicn-ui/registry](https://github.com/masicn-ui/registry) (public) | `@masicn/registry` | Component registry / source of truth |
+| [npmjs.com/package/masicn](https://www.npmjs.com/package/masicn) (private source, public npm package) | `masicn` (npm bin) | CLI tool — 17 commands |
+| masicn-ui/Playground (private) | `com.masicn.playground` | Reference/testing app — where components are authored |
+| [masicn-ui/docs](https://github.com/masicn-ui/docs) (public) | — | Documentation site |
 | `../manishhXyz/` | `ink.manishh.xyz` | Example consumer app |
+
+## Contributing
+
+See [masicn.manishh.in/docs/contributing](https://masicn.manishh.in/docs/contributing) for the full
+model — bug fixes and showcase improvements PR directly against this repo; brand-new components go
+through an issue on [registry](https://github.com/masicn-ui/registry) first.
 
 ## License
 
