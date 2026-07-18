@@ -2,7 +2,7 @@
 
 ## What This Is
 
-`Gallery` (`com.masicn.gallery`) is the **public showcase app** for the masicn ecosystem. It exists to demonstrate every registry component in realistic, composed contexts — real-looking screens, not isolated demos. Screenshots and recordings from Gallery are embedded in the docs site (`masicn.dev`).
+`Gallery` (`com.masicn.gallery`) is the **public showcase app** for the masicn ecosystem. It exists to demonstrate every registry component in realistic, composed contexts — real-looking screens, not isolated demos. Screenshots and recordings from Gallery are embedded in the docs site (`masicn.manishh.in`).
 
 This is a React Native app. It is **never published** — it is an internal development tool.
 
