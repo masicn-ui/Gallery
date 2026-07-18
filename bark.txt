@@ -5,6 +5,8 @@
 ├── Gemfile.lock
 ├── LICENSE
 ├── README.md
+├── __mocks__/
+│   └── react-native-bootsplash.js
 ├── __tests__/
 │   ├── App.test.tsx
 │   ├── screens/
@@ -45,7 +47,18 @@
 │   │           │               └── MainApplication.kt
 │   │           └── res/
 │   │               ├── drawable/
+│   │               │   ├── bootsplash.xml
 │   │               │   └── rn_edit_text_material.xml
+│   │               ├── drawable-hdpi/
+│   │               │   └── bootsplash_logo.png
+│   │               ├── drawable-mdpi/
+│   │               │   └── bootsplash_logo.png
+│   │               ├── drawable-xhdpi/
+│   │               │   └── bootsplash_logo.png
+│   │               ├── drawable-xxhdpi/
+│   │               │   └── bootsplash_logo.png
+│   │               ├── drawable-xxxhdpi/
+│   │               │   └── bootsplash_logo.png
 │   │               ├── mipmap-hdpi/
 │   │               │   ├── ic_launcher.png
 │   │               │   └── ic_launcher_round.png
@@ -61,8 +74,13 @@
 │   │               ├── mipmap-xxxhdpi/
 │   │               │   ├── ic_launcher.png
 │   │               │   └── ic_launcher_round.png
-│   │               └── values/
-│   │                   ├── strings.xml
+│   │               ├── values/
+│   │               │   ├── colors.xml
+│   │               │   ├── strings.xml
+│   │               │   └── styles.xml
+│   │               ├── values-night/
+│   │               │   └── colors.xml
+│   │               └── values-v31/
 │   │                   └── styles.xml
 │   ├── build.gradle
 │   ├── gradle/
@@ -76,30 +94,47 @@
 │   └── settings.gradle
 ├── app.json
 ├── assets/
-│   └── fonts/
-│       ├── DMSans-Bold.ttf
-│       ├── DMSans-Medium.ttf
-│       ├── DMSans-Regular.ttf
-│       ├── Inter-Bold.ttf
-│       ├── Inter-Medium.ttf
-│       ├── Inter-Regular.ttf
-│       ├── Manrope-Bold.ttf
-│       ├── Manrope-Medium.ttf
-│       ├── Manrope-Regular.ttf
-│       ├── Outfit-Bold.ttf
-│       ├── Outfit-Medium.ttf
-│       ├── Outfit-Regular.ttf
-│       ├── Poppins-Bold.ttf
-│       ├── Poppins-Medium.ttf
-│       └── Poppins-Regular.ttf
+│   ├── bootsplash/
+│   │   ├── logo.png
+│   │   ├── logo@1,5x.png
+│   │   ├── logo@2x.png
+│   │   ├── logo@3x.png
+│   │   ├── logo@4x.png
+│   │   └── manifest.json
+│   ├── fonts/
+│   │   ├── DMSans-Bold.ttf
+│   │   ├── DMSans-Medium.ttf
+│   │   ├── DMSans-Regular.ttf
+│   │   ├── Inter-Bold.ttf
+│   │   ├── Inter-Medium.ttf
+│   │   ├── Inter-Regular.ttf
+│   │   ├── Manrope-Bold.ttf
+│   │   ├── Manrope-Medium.ttf
+│   │   ├── Manrope-Regular.ttf
+│   │   ├── Outfit-Bold.ttf
+│   │   ├── Outfit-Medium.ttf
+│   │   ├── Outfit-Regular.ttf
+│   │   ├── Poppins-Bold.ttf
+│   │   ├── Poppins-Medium.ttf
+│   │   └── Poppins-Regular.ttf
+│   └── svg/
 ├── babel.config.js
 ├── index.js
 ├── ios/
 │   ├── Gallery/
 │   │   ├── AppDelegate.swift
+│   │   ├── BootSplash.storyboard
+│   │   ├── Colors.xcassets/
+│   │   │   └── BootSplashBackground-56f5be.colorset/
+│   │   │       └── Contents.json
 │   │   ├── Images.xcassets/
 │   │   │   ├── AppIcon.appiconset/
 │   │   │   │   └── Contents.json
+│   │   │   ├── BootSplashLogo-56f5be.imageset/
+│   │   │   │   ├── Contents.json
+│   │   │   │   ├── logo-56f5be.png
+│   │   │   │   ├── logo-56f5be@2x.png
+│   │   │   │   └── logo-56f5be@3x.png
 │   │   │   └── Contents.json
 │   │   ├── Info.plist
 │   │   ├── LaunchScreen.storyboard
@@ -129,6 +164,9 @@
 ├── react-native.config.js
 ├── src/
 │   ├── app/
+│   │   ├── bootsplash/
+│   │   │   ├── BootSplashOverlay.tsx
+│   │   │   └── constants.ts
 │   │   ├── navigation/
 │   │   │   ├── AppNavigator.tsx
 │   │   │   └── types.ts
@@ -215,6 +253,11 @@
 │   │       ├── ScreenLayout.tsx
 │   │       ├── ShowcaseSection.tsx
 │   │       └── VariantRow.tsx
+│   ├── brand/
+│   │   └── logo/
+│   │       ├── MasicnLogo.tsx
+│   │       ├── index.ts
+│   │       └── masicn.logo.svg
 │   ├── masicn/
 │   │   ├── WelcomeScreen.tsx
 │   │   ├── hooks/
@@ -381,4 +424,4 @@
 │           └── index.ts
 └── tsconfig.json
 
-58 directories, 323 files
+74 directories, 350 files

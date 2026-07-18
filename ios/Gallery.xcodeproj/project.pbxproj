@@ -27,6 +27,8 @@
 		A8F76241ED8148138D113327 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79255C5E35614B78B966FE37 /* Inter-Bold.ttf */; };
 		E3351A8B0643404FB175F38D /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 066B8C9F401A4CA5A23256DD /* Manrope-Medium.ttf */; };
 		FFDB61D2343A4655A136FFC9 /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96B20D9924C74A259AF605F8 /* Manrope-Regular.ttf */; };
+		95C11F130B674A369D55B235 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51449832C7BF47C2A58EBA6E /* BootSplash.storyboard */; };
+		B6ED75A77B7F4DF3826730FD /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78EE72CBA1474CFB884DE0F2 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		E96B9D65B92A4C0986502598 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F33CC12CB2AF4FF6BB67FF87 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		51449832C7BF47C2A58EBA6E /* BootSplash.storyboard */ = {isa = PBXFileReference; name = "BootSplash.storyboard"; path = "Gallery/BootSplash.storyboard"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		78EE72CBA1474CFB884DE0F2 /* Colors.xcassets */ = {isa = PBXFileReference; name = "Colors.xcassets"; path = "Gallery/Colors.xcassets"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = folder.assetcatalog; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				51449832C7BF47C2A58EBA6E /* BootSplash.storyboard */,
+				78EE72CBA1474CFB884DE0F2 /* Colors.xcassets */,
 			);
 			name = Gallery;
 			sourceTree = "<group>";
@@ -230,6 +236,8 @@
 				13B211A97E8B44459A3C0CF2 /* Poppins-Regular.ttf in Resources */,
 				2247546E4F84420AB184AE86 /* Poppins-Bold.ttf in Resources */,
 				A43A5DF0E2964BEC94C4D638 /* Manrope-Bold.ttf in Resources */,
+				95C11F130B674A369D55B235 /* BootSplash.storyboard in Resources */,
+				B6ED75A77B7F4DF3826730FD /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

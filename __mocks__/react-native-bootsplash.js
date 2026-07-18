@@ -1,0 +1,11 @@
+'use strict';
+
+module.exports = {
+  hide: jest.fn().mockResolvedValue(undefined),
+  isVisible: jest.fn().mockReturnValue(false),
+  useHideAnimation: jest.fn().mockReturnValue({
+    container: {},
+    logo: { source: 0 },
+    brand: { source: 0 },
+  }),
+};
