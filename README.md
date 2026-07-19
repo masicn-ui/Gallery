@@ -28,7 +28,7 @@ lists, form layouts, navigation patterns using several components together).
 **What does *not* go here:** new component authoring (that's `Playground/src/shared/`), design
 system primitives (those live in `masicn/src/`), and registry templates (those live in `registry/`).
 
-**Exception:** under the [contributing model](https://masicn.manishh.in/docs/contributing),
+**Exception:** under the [contributing model](https://masicn.manishh.in/contributing),
 external contributors proposing a brand-new component may build it directly inside
 `src/shared/components/<name>/` here, following Playground's authoring conventions (tokens,
 accessibility, tests, a demo screen), as both the reference implementation and its own showcase.
@@ -129,7 +129,7 @@ Use `/add-showcase <name>` (see `.claude/commands/add-showcase.md`), or manually
 
 ## Contributing
 
-See [masicn.manishh.in/docs/contributing](https://masicn.manishh.in/docs/contributing) for the full
+See [masicn.manishh.in/contributing](https://masicn.manishh.in/contributing) for the full
 model — bug fixes and showcase improvements PR directly against this repo; brand-new components go
 through an issue on [registry](https://github.com/masicn-ui/registry) first.
 
